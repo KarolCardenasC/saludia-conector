@@ -1,0 +1,313 @@
+{
+  "etiqueta": "Hallazgos exploratorios, fuera de los criterios C1–C5",
+  "nota": "Prueba de aprendizaje con casos difíciles que NO son errores sembrados. No modifica las metas ni los criterios C1–C5 y no se usa para confirmar la hipótesis H2. Lo esperado de cada caso se definió antes de ejecutar.",
+  "generado": "2026-11-22T18:55:42-05:00",
+  "variantes": [
+    {
+      "variante": "A",
+      "descripcion": "configuración por defecto (igual que la fuente 2)",
+      "mapeo": "exploratorio/mapeo_exploratorio_A.yaml",
+      "casos": [
+        {
+          "caso": "EX-01",
+          "fila": 2,
+          "nombre": "CIE-10 en minúscula",
+          "descripcion": "El código llega en minúscula (j00x)",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "codigo_cie10 = J00X",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-02",
+          "fila": 3,
+          "nombre": "CIE-10 con punto",
+          "descripcion": "Formato OMS con punto (J45.9) en vez del formato SISPRO (J459)",
+          "esperado": "aceptar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "cie10_inexistente: 'J45.9' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+          ],
+          "detalle": "",
+          "clasificacion": "marca de más"
+        },
+        {
+          "caso": "EX-03",
+          "fila": 4,
+          "nombre": "CIE-10 de 3 caracteres",
+          "descripcion": "Categoría sin subdivisión escrita sin la X de SISPRO (I10)",
+          "esperado": "aceptar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "cie10_inexistente: 'I10' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+          ],
+          "detalle": "",
+          "clasificacion": "marca de más"
+        },
+        {
+          "caso": "EX-04",
+          "fila": 5,
+          "nombre": "Espacios sobrantes",
+          "descripcion": "El número de documento trae espacios antes y después",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "numero_documento = 1045001004",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-05",
+          "fila": 6,
+          "nombre": "Fecha de atención futura",
+          "descripcion": "La atención está fechada en 2031",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-06",
+          "fila": 7,
+          "nombre": "Mismo paciente, otra atención",
+          "descripcion": "Mismo documento que EX-01 en otra fecha: es legítimo",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "numero_documento = 1045001001",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-07",
+          "fila": 8,
+          "nombre": "Id de atención repetido",
+          "descripcion": "Caso EX-07: reutiliza el IdAtencion de EX-01",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "id_duplicado: El id 'EX-01' ya apareció en la fila 2"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-08",
+          "fila": 9,
+          "nombre": "Mismo documento, otra persona",
+          "descripcion": "Documento de EX-01 con otro nombre, sexo y nacimiento",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-09",
+          "fila": 10,
+          "nombre": "Sexo en otro formato",
+          "descripcion": "Llega 'F' en una fuente que usa 1/2",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "valor_no_reconocido: 'F' no está en la tabla de equivalencias de sexo del mapeo"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-10",
+          "fila": 11,
+          "nombre": "Tipo de documento incoherente con la edad",
+          "descripcion": "Tarjeta de identidad (TI) para una persona de 44 años",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-11",
+          "fila": 12,
+          "nombre": "Diagnóstico incoherente con el sexo",
+          "descripcion": "Vaginitis aguda (N760) en un paciente masculino",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-12",
+          "fila": 13,
+          "nombre": "Nacimiento posterior a la atención",
+          "descripcion": "Nace en 2027 y la atención es en 2026",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "fecha_incoherente: La fecha de nacimiento es posterior a la fecha de atención"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        }
+      ],
+      "resumen": {
+        "coincide": 6,
+        "no detecta": 4,
+        "marca de más": 2,
+        "normaliza distinto": 0
+      }
+    },
+    {
+      "variante": "B",
+      "descripcion": "con las opciones cie10_quitar_punto y cie10_completar_x",
+      "mapeo": "exploratorio/mapeo_exploratorio_B.yaml",
+      "casos": [
+        {
+          "caso": "EX-01",
+          "fila": 2,
+          "nombre": "CIE-10 en minúscula",
+          "descripcion": "El código llega en minúscula (j00x)",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "codigo_cie10 = J00X",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-02",
+          "fila": 3,
+          "nombre": "CIE-10 con punto",
+          "descripcion": "Formato OMS con punto (J45.9) en vez del formato SISPRO (J459)",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "codigo_cie10 = J459",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-03",
+          "fila": 4,
+          "nombre": "CIE-10 de 3 caracteres",
+          "descripcion": "Categoría sin subdivisión escrita sin la X de SISPRO (I10)",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "codigo_cie10 = I10X",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-04",
+          "fila": 5,
+          "nombre": "Espacios sobrantes",
+          "descripcion": "El número de documento trae espacios antes y después",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "numero_documento = 1045001004",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-05",
+          "fila": 6,
+          "nombre": "Fecha de atención futura",
+          "descripcion": "La atención está fechada en 2031",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-06",
+          "fila": 7,
+          "nombre": "Mismo paciente, otra atención",
+          "descripcion": "Mismo documento que EX-01 en otra fecha: es legítimo",
+          "esperado": "aceptar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "numero_documento = 1045001001",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-07",
+          "fila": 8,
+          "nombre": "Id de atención repetido",
+          "descripcion": "Caso EX-07: reutiliza el IdAtencion de EX-01",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "id_duplicado: El id 'EX-01' ya apareció en la fila 2"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-08",
+          "fila": 9,
+          "nombre": "Mismo documento, otra persona",
+          "descripcion": "Documento de EX-01 con otro nombre, sexo y nacimiento",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-09",
+          "fila": 10,
+          "nombre": "Sexo en otro formato",
+          "descripcion": "Llega 'F' en una fuente que usa 1/2",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "valor_no_reconocido: 'F' no está en la tabla de equivalencias de sexo del mapeo"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        },
+        {
+          "caso": "EX-10",
+          "fila": 11,
+          "nombre": "Tipo de documento incoherente con la edad",
+          "descripcion": "Tarjeta de identidad (TI) para una persona de 44 años",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-11",
+          "fila": 12,
+          "nombre": "Diagnóstico incoherente con el sexo",
+          "descripcion": "Vaginitis aguda (N760) en un paciente masculino",
+          "esperado": "marcar",
+          "resultado": "aceptado (RDA válido)",
+          "hallazgos": [],
+          "detalle": "",
+          "clasificacion": "no detecta"
+        },
+        {
+          "caso": "EX-12",
+          "fila": 13,
+          "nombre": "Nacimiento posterior a la atención",
+          "descripcion": "Nace en 2027 y la atención es en 2026",
+          "esperado": "marcar",
+          "resultado": "marcado con error",
+          "hallazgos": [
+            "fecha_incoherente: La fecha de nacimiento es posterior a la fecha de atención"
+          ],
+          "detalle": "",
+          "clasificacion": "coincide"
+        }
+      ],
+      "resumen": {
+        "coincide": 8,
+        "no detecta": 4,
+        "marca de más": 0,
+        "normaliza distinto": 0
+      }
+    }
+  ]
+}

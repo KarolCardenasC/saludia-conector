@@ -1,0 +1,18 @@
+# SALUDIA · dependencias fijadas (coinciden con la tabla 4.3 del informe)
+# Probado con Python 3.13 en un entorno virtual limpio.
+
+# Construcción y validación FHIR. 6.4.0 = FHIR 4.0.1 (R4).
+# Las versiones 7.x/8.x ya NO son R4 (8.x usa R5 por defecto).
+fhir.resources==6.4.0
+# fhir.resources 6.4.0 necesita pydantic 1.x
+pydantic==1.10.27
+
+# Lectura de CSV y Excel
+pandas==3.1.1
+openpyxl==3.1.5
+
+# Archivos de mapeo YAML
+PyYAML==6.0.4
+
+# Datos sintéticos
+Faker==40.63.0

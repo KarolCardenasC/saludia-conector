@@ -1,0 +1,4 @@
+9e52892ecbfd489038e1b9a286a462e720eef2541ba90526a87771ccf15061c2  metas.yaml
+# Huella SHA-256 de metas.yaml registrada al fijar las metas (22-nov-2026, antes de
+# cualquier prueba). El módulo de métricas la compara en cada corrida y avisa si
+# metas.yaml fue modificado.

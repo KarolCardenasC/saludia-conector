@@ -1,0 +1,37 @@
+# Prueba exploratoria · variante A
+# Mismo mapeo que la fuente 2 (CSV), apuntando a los casos difíciles.
+# Las columnas Caso, Descripcion, Esperado y ValorEsperado documentan la prueba
+# y el mapeo las ignora.
+version_esquema: 1
+
+fuente:
+  id: exploratorio_a
+  nombre: "Casos difíciles · variante A"
+  tipo: csv
+  ruta: exploratorio/casos_dificiles.csv
+
+lectura:
+  separador: ","
+  codificacion: utf-8
+  fila_encabezado: 1
+
+columnas:
+  id_atencion: IdAtencion
+  tipo_documento: TipoID
+  numero_documento: NumeroID
+  nombres: Nombres
+  apellidos: Apellidos
+  sexo: Sexo
+  fecha_nacimiento: FechaNacimiento
+  fecha_atencion: FechaAtencion
+  codigo_cie10: CodDiagnostico
+
+formatos_fecha:
+  fecha_nacimiento: "%d/%m/%Y"
+  fecha_atencion: "%d/%m/%Y"
+
+equivalencias:
+  sexo: {"1": M, "2": F}
+  tipo_documento: {"1": CC, "2": TI, "3": RC, "4": CE, "5": PA}
+
+# Variante A: configuración por defecto (igual que la fuente 2, sin opciones CIE-10)

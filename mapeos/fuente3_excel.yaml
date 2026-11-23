@@ -1,0 +1,39 @@
+# Fuente 3 · Hoja de Excel diligenciada a mano
+version_esquema: 1
+
+fuente:
+  id: fuente3_excel
+  nombre: "Hoja de Excel diligenciada a mano"
+  tipo: excel
+  ruta: datos/fuentes/fuente3_registro_manual.xlsx
+
+lectura:
+  hoja: Atenciones
+  fila_encabezado: 4          # filas 1 a 3: título, nota y una fila en blanco
+
+columnas:
+  id_atencion: "N° atención"
+  tipo_documento: "Tipo de documento"
+  numero_documento: "No. documento"
+  nombres: Nombres
+  apellidos: Apellidos
+  sexo: "Género"
+  fecha_nacimiento: "F. nacimiento"
+  fecha_atencion: "Fecha consulta"
+  codigo_cie10: "Dx principal (CIE-10)"
+  # Observaciones se ignora
+
+formatos_fecha:
+  fecha_nacimiento: "%d-%m-%Y"
+  fecha_atencion: "%d-%m-%Y"
+
+equivalencias:
+  sexo:
+    Masculino: M
+    Femenino: F
+  tipo_documento:
+    "Cédula de ciudadanía": CC
+    "Tarjeta de identidad": TI
+    "Registro civil": RC
+    "Cédula de extranjería": CE
+    "Pasaporte": PA

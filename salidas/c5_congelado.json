@@ -1,0 +1,43 @@
+{
+  "fecha": "2026-11-22T18:55:44-05:00",
+  "archivos": 34,
+  "huellas": {
+    "config/metas.sha256": "8f7ab07ecd1a839505ada5b56c06426471d4dd836b72ea86f0a49337a3ce6bb3",
+    "config/metas.yaml": "9e52892ecbfd489038e1b9a286a462e720eef2541ba90526a87771ccf15061c2",
+    "config/parametros.yaml": "085d50c61dcf4a767f6da26f6a08bfd5d1fe81561bc32030ce6eef743a77b40f",
+    "generador_sintetico/__init__.py": "4e883f7aa58d12ba0c9c16c7ec00fb0b1ac2314f0fe6534f0500a96ef294aad6",
+    "generador_sintetico/generador.py": "d3b8ec2f85aaccf11b1cb9992c9c99eb78b441b3659728192cad4a89dcee83c5",
+    "generador_sintetico/verificar.py": "7c2e888e92d8b7cbc9e1081f0fd509876175fbbd1304a52c16dfc6183ab04f36",
+    "main.py": "7b67aae4358e2bb44548f14aff9e3fe13234dd8f714061c3d861e889cc3e133f",
+    "mapeos/fuente1_sqlite.yaml": "57494bf4a6dff23fd88cade76650b63ecf08b1b13cf22ac632d22e250d2befe6",
+    "mapeos/fuente2_csv.yaml": "399ce01a47dc875f42e8b910c051f8ca73c0f366cee2336b75a224c1107a2b14",
+    "mapeos/fuente3_excel.yaml": "ebc194512e132cab97db22c09f8df683182fb2bbaa787af47ca020cbe14c3e22",
+    "saludia/__init__.py": "22d6b8d3e1f36aa3704d621ed300e324a7d2df49cd407057e3cffc1861b0485b",
+    "saludia/adaptadores.py": "b8a28175a8348a4be2a63a7c0a94446965d82a148fbc27d2d83cf84de4ebfbef",
+    "saludia/catalogo.py": "af7503ca519aefc4b2724707e45b9cab9b6f121759aa9f9b4abacaeaf5b347cd",
+    "saludia/conector.py": "0761c80d94cd635dd22af37edf1da64a403a235eb775f9f9d2e5aaf1c0a6f681",
+    "saludia/consola.py": "8fb653481d547b4c7cf58b8cc80751fc3df6c5061921e35e4714af408068f822",
+    "saludia/dashboard.py": "333ce43791977ade26e02c5a129e2227b667596e3d0e0afff32eb22c0a4bfd08",
+    "saludia/exploratorio.py": "f45615d9a8b9092aef2e82924415a6bc66748d3af3f791649149a689396d493c",
+    "saludia/integridad.py": "f2698730f083bbefe08a3d3ea1595e07b3ab41eb005c6a0575556fe252f37479",
+    "saludia/mapeo.py": "9035b74668cfa8b29813610ebd2a82af360c2ae6a4efbf0bbaa41407cb62c017",
+    "saludia/metricas.py": "705134ea5a0e768a1e15b8ef190d8b6a97339d6cdb5e3114432461b34cf5fc72",
+    "saludia/modelo.py": "2467832c21a02f519de3d91c54374b4185ff6088f3346a57ec13e1a7deb9a6bf",
+    "saludia/motor_fhir.py": "66f6b8c77a0ffe3013f4cc11072044889a5187d0e5b60b49dd8e3e947b51d146",
+    "saludia/normalizador.py": "75ef7e773f1cc88d6cb74d39c4044f106d9957ff84677eab17d35a7b53e05baf",
+    "saludia/salidas.py": "7eadbf7b18a39befd6d7d6a2360843b1590a6725f62b79ad35ae494ff9388680",
+    "saludia/validacion_fhir.py": "cacebcc1dce0d4d65a33ca946dd01111a7f8c5fde40a76f39ef557bc4376bc59",
+    "saludia/validador.py": "26664c3bd5addb0c244aa4004ef9d7a14b2b136ea3e940573c1f7616424c1822",
+    "scripts/c5_cronometro.py": "5d0e9408f927a1d7373ef40d97ba4a10f22f2b0c756dce297b10d0db4ebca83f",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_exploratorio.py": "f8e84382bb7eddc8fd6a8bbc86f5bf30d85d21340b69b46859c7ce5114bdfc44",
+    "tests/test_fase3.py": "1373359061cee6e9e01713b1f6c0e087c6c7ac9d922445adc25264d740a95601",
+    "tests/test_fase4.py": "20d2c5ad2295861830a5c05c9a18761c2003f6ce500f53d7abc01e7f02764129",
+    "tests/test_fase5.py": "98f58c42392ae3b3f959f649674570cb6ddd576037b6d2d0b2c9a407ca2ea64c",
+    "tests/test_fase6.py": "b08b66aac33c870137fcd0ac266de9eca76c5337ed50813f186da1d1158f99f7",
+    "tests/test_generador.py": "7932adcb51ae9515765151244aca4905d2f02f118e96506097445b4b8648d038"
+  },
+  "git": {
+    "commit": null
+  }
+}

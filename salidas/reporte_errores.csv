@@ -1,0 +1,31 @@
+﻿id_atencion,fuente,fila,campo,tipo_error,valor_encontrado,mensaje
+70012,fuente1_sqlite,12,numero_documento,campo_obligatorio_vacio,,El campo obligatorio 'numero_documento' está vacío
+70015,fuente1_sqlite,15,fecha_atencion,fecha_invalida,04/03/2026 08:30,'04/03/2026 08:30' no corresponde al formato AAAA-MM-DD HH:MM
+70047,fuente1_sqlite,47,fecha_atencion,fecha_invalida,2026-02-30 09:15,'2026-02-30 09:15' no existe en el calendario (formato esperado AAAA-MM-DD HH:MM)
+70056,fuente1_sqlite,56,sexo,campo_obligatorio_vacio,,El campo obligatorio 'sexo' está vacío
+70061,fuente1_sqlite,61,codigo_cie10,cie10_inexistente,J0O9,"'J0O9' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+70063,fuente1_sqlite,63,codigo_cie10,cie10_inexistente,E999,El código 'E999' no existe en el catálogo CIE-10
+70067,fuente1_sqlite,67,fecha_nacimiento,fecha_invalida,1985-02-29,'1985-02-29' no existe en el calendario (formato esperado AAAA-MM-DD)
+70072,fuente1_sqlite,72,codigo_cie10,cie10_inexistente,H999,El código 'H999' no existe en el catálogo CIE-10
+70079,fuente1_sqlite,79,codigo_cie10,cie10_inexistente,K999,El código 'K999' no existe en el catálogo CIE-10
+70089,fuente1_sqlite,89,tipo_documento,campo_obligatorio_vacio,,El campo obligatorio 'tipo_documento' está vacío
+AT2026-1012,fuente2_csv,13,fecha_atencion,fecha_invalida,31/02/2026,'31/02/2026' no existe en el calendario (formato esperado DD/MM/AAAA)
+AT2026-1016,fuente2_csv,17,codigo_cie10,cie10_inexistente,P999,El código 'P999' no existe en el catálogo CIE-10
+AT2026-1030,fuente2_csv,31,fecha_nacimiento,campo_obligatorio_vacio,,El campo obligatorio 'fecha_nacimiento' está vacío
+AT2026-1038,fuente2_csv,39,codigo_cie10,cie10_inexistente,I1OX,"'I1OX' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+AT2026-1039,fuente2_csv,40,fecha_nacimiento,fecha_invalida,12/14/1990,'12/14/1990' no corresponde al formato DD/MM/AAAA
+AT2026-1056,fuente2_csv,57,fecha_atencion,campo_obligatorio_vacio,   ,El campo obligatorio 'fecha_atencion' está vacío
+AT2026-1057,fuente2_csv,58,codigo_cie10,cie10_inexistente,D999,El código 'D999' no existe en el catálogo CIE-10
+AT2026-1082,fuente2_csv,83,fecha_nacimiento,fecha_invalida,15-07-1978,'15-07-1978' no corresponde al formato DD/MM/AAAA
+AT2026-1095,fuente2_csv,96,codigo_cie10,campo_obligatorio_vacio,,El campo obligatorio 'codigo_cie10' está vacío
+AT2026-1097,fuente2_csv,98,fecha_atencion,fecha_invalida,2026-03-15,'2026-03-15' no corresponde al formato DD/MM/AAAA
+,fuente3_excel,6,id_atencion,campo_obligatorio_vacio,,El campo obligatorio 'id_atencion' está vacío
+3,fuente3_excel,7,fecha_atencion,fecha_invalida,15/03/2026,'15/03/2026' no corresponde al formato DD-MM-AAAA
+27,fuente3_excel,31,fecha_nacimiento,fecha_invalida,29-02-2025,'29-02-2025' no existe en el calendario (formato esperado DD-MM-AAAA)
+50,fuente3_excel,54,codigo_cie10,cie10_inexistente,Ñ100,"'Ñ100' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+51,fuente3_excel,55,codigo_cie10,cie10_inexistente,J4S9,"'J4S9' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+55,fuente3_excel,59,codigo_cie10,campo_obligatorio_vacio,,El campo obligatorio 'codigo_cie10' está vacío
+70,fuente3_excel,74,fecha_atencion,fecha_invalida,31-04-2026,'31-04-2026' no existe en el calendario (formato esperado DD-MM-AAAA)
+71,fuente3_excel,75,numero_documento,campo_obligatorio_vacio,,El campo obligatorio 'numero_documento' está vacío
+74,fuente3_excel,78,codigo_cie10,cie10_inexistente,C999,El código 'C999' no existe en el catálogo CIE-10
+84,fuente3_excel,88,sexo,campo_obligatorio_vacio,,El campo obligatorio 'sexo' está vacío

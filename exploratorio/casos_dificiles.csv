@@ -1,0 +1,13 @@
+IdAtencion,TipoID,NumeroID,Nombres,Apellidos,Sexo,FechaNacimiento,FechaAtencion,CodDiagnostico,Caso,Descripcion,Esperado,ValorEsperado
+EX-01,1,1045001001,Laura,Pérez Gómez,2,12/05/1990,10/03/2026,j00x,CIE-10 en minúscula,El código llega en minúscula (j00x),aceptar,codigo_cie10=J00X
+EX-02,1,1045001002,Andrés,Ruiz Díaz,1,03/08/1975,11/03/2026,J45.9,CIE-10 con punto,Formato OMS con punto (J45.9) en vez del formato SISPRO (J459),aceptar,codigo_cie10=J459
+EX-03,1,1045001003,Marta,Lozano Ríos,2,22/01/1960,11/03/2026,I10,CIE-10 de 3 caracteres,Categoría sin subdivisión escrita sin la X de SISPRO (I10),aceptar,codigo_cie10=I10X
+EX-04,1,  1045001004  ,Jorge,Mora Castro,1,30/09/1988,12/03/2026,R51X,Espacios sobrantes,El número de documento trae espacios antes y después,aceptar,numero_documento=1045001004
+EX-05,1,1045001005,Sofía,Vega Pardo,2,14/02/1995,15/03/2031,J039,Fecha de atención futura,La atención está fechada en 2031,marcar,
+EX-06,1,1045001001,Laura,Pérez Gómez,2,12/05/1990,25/03/2026,K297,"Mismo paciente, otra atención",Mismo documento que EX-01 en otra fecha: es legítimo,aceptar,numero_documento=1045001001
+EX-01,1,1045001007,Camilo,Torres León,1,05/06/1982,13/03/2026,M545,Id de atención repetido,Caso EX-07: reutiliza el IdAtencion de EX-01,marcar,
+EX-08,1,1045001001,Pedro,Sánchez Mejía,1,01/01/1950,14/03/2026,I10X,"Mismo documento, otra persona","Documento de EX-01 con otro nombre, sexo y nacimiento",marcar,
+EX-09,1,1045001009,Elena,Ortiz Peña,F,19/11/1992,14/03/2026,N390,Sexo en otro formato,Llega 'F' en una fuente que usa 1/2,marcar,
+EX-10,2,1045001010,Ricardo,Gil Navas,1,10/10/1981,15/03/2026,M255,Tipo de documento incoherente con la edad,Tarjeta de identidad (TI) para una persona de 44 años,marcar,
+EX-11,1,1045001011,Mauricio,Rojas Vélez,1,07/07/1979,16/03/2026,N760,Diagnóstico incoherente con el sexo,Vaginitis aguda (N760) en un paciente masculino,marcar,
+EX-12,1,1045001012,Diana,Cruz Bernal,2,20/04/2027,16/03/2026,R104,Nacimiento posterior a la atención,Nace en 2027 y la atención es en 2026,marcar,

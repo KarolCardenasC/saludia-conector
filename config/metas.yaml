@@ -1,0 +1,63 @@
+# =====================================================================
+#  SALUDIA · Metas de los criterios de éxito (sección 3.3 del informe)
+# =====================================================================
+#  Estas metas se fijaron ANTES de ejecutar cualquier prueba.
+#  Fecha de fijación: 22 de noviembre de 2026.
+#
+#  NO SE MODIFICAN después de ver resultados. Si un criterio no se
+#  cumple, se reporta tal cual y se analiza en la sección 6.
+#  El programa calcula el SHA-256 de este archivo y lo deja en
+#  salidas/metricas.json como evidencia de que no cambió.
+# =====================================================================
+
+fecha_fijacion: "2026-11-22"
+
+criterios:
+  C1:
+    nombre: "Extracción automática"
+    descripcion: >
+      % de las 300 atenciones extraídas de las tres fuentes sin
+      intervención manual. Un registro con error que se extrae y queda
+      marcado como inválido cuenta como extraído.
+    operador: ">="
+    meta: 95.0
+    unidad: "%"
+
+  C2:
+    nombre: "RDA válidos"
+    descripcion: >
+      % de Bundles FHIR que pasan la validación estructural, calculado
+      sobre las 270 atenciones sin errores sembrados.
+    operador: ">="
+    meta: 90.0
+    unidad: "%"
+
+  C3:
+    nombre: "Detección de errores"
+    descripcion: >
+      % de los 30 errores sembrados que el sistema detecta y reporta.
+    operador: ">="          # meta = 100 %
+    meta: 100.0
+    unidad: "%"
+
+  C4:
+    nombre: "Tiempo de procesamiento"
+    descripcion: >
+      Tiempo promedio para procesar una atención, desde la extracción
+      hasta el RDA.
+    operador: "<="
+    meta: 1.0
+    unidad: "s"
+
+  C5:
+    nombre: "Integración de una fuente nueva"
+    descripcion: >
+      Conectar una fuente adicional solo con un archivo de configuración
+      de mapeo (YAML), sin modificar el código del conector ni la fuente.
+    operador: "si/no"
+    meta: "si"
+    unidad: ""
+
+# Regla de decisión de la sección 3.3: la Hipótesis 2 se considera
+# confirmada en entorno simulado si se cumplen al menos estos criterios.
+regla_h2: ["C1", "C2", "C5"]

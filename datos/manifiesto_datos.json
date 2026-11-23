@@ -1,0 +1,35 @@
+{
+  "semilla": 20261122,
+  "locale": "es_CO",
+  "total_atenciones": 300,
+  "total_errores_sembrados": 30,
+  "fuentes": {
+    "fuente1_sqlite": {
+      "archivo": "datos/fuentes/fuente1_his_clinico.sqlite",
+      "registros": 100,
+      "errores_sembrados": 10
+    },
+    "fuente2_csv": {
+      "archivo": "datos/fuentes/fuente2_exportacion_antigua.csv",
+      "registros": 100,
+      "errores_sembrados": 10
+    },
+    "fuente3_excel": {
+      "archivo": "datos/fuentes/fuente3_registro_manual.xlsx",
+      "registros": 100,
+      "errores_sembrados": 10
+    }
+  },
+  "sha256_archivo": {
+    "fuente1_sqlite": "a0f386cf33477538c65456d2d53d37a01f5afe385cf740f4cf185d27fd9263e4",
+    "fuente2_csv": "6bbfb5db6100667eb47d52eb1c17b28d9c4fd0322dfd286db54ef619a7772980",
+    "fuente3_excel": "3f08b215d82f6d00402d9f3dceb0d1d1f87b51d92a9db488bfeddb820d426c2e"
+  },
+  "sha256_contenido": {
+    "fuente1_sqlite": "5009d89831bf93df555361846b20a259acc71eafca943e1f49b287e343412277",
+    "fuente2_csv": "040f275bc0d4360593854b132f629d22f64c26a4462442445f32c46b8b57f885",
+    "fuente3_excel": "65f37ec15ad4532e8b82b1803a523c130bafb6a5017efa56addb8843ea999823"
+  },
+  "sha256_errores_sembrados": "3484d89276ee0ff12f1eea2baa909ddeedc622043027c994223db63b73e96752",
+  "nota": "Datos 100 % sintéticos. No corresponden a personas reales."
+}

@@ -1,0 +1,25 @@
+{
+  "inicio": "2026-11-22T19:00:26-05:00",
+  "inicio_epoch": 1795392026.6577928,
+  "intentos": [
+    {
+      "numero": 1,
+      "hora": "2026-11-22T19:00:35-05:00",
+      "mapeo": "fuente4_eps.yaml",
+      "segundos_desde_inicio": 9.2,
+      "resultado": "conectada",
+      "conectada": true,
+      "error_configuracion": null,
+      "registros": 25,
+      "validos": 25,
+      "con_error": 0,
+      "bundles_generados": 25,
+      "bundles_validos": 25,
+      "errores_por_tipo": {},
+      "primeros_errores": [],
+      "columnas_ignoradas": []
+    }
+  ],
+  "terminado": true,
+  "fin": "2026-11-22T19:00:40-05:00"
+}

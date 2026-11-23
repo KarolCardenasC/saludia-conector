@@ -1,0 +1,202 @@
+{
+  "generado": "2026-11-22T19:05:41-05:00",
+  "leyenda": "Prototipo académico · datos sintéticos · validación estructural FHIR R4",
+  "version_fhir": "4.0.1",
+  "alcance_validacion": "Validación estructural R4 base + reglas de documento (no es conformidad con la guía del Ministerio)",
+  "catalogo_cie10": {
+    "origen": "subconjunto transcrito (contrastar con SISPRO)",
+    "codigos": 300
+  },
+  "metas": {
+    "archivo": "config/metas.yaml",
+    "fecha_fijacion": "2026-11-22",
+    "sha256": "9e52892ecbfd489038e1b9a286a462e720eef2541ba90526a87771ccf15061c2",
+    "sha256_registrada": "9e52892ecbfd489038e1b9a286a462e720eef2541ba90526a87771ccf15061c2",
+    "sin_cambios": true
+  },
+  "fuentes_intactas": {
+    "fuente1_sqlite": true,
+    "fuente2_csv": true,
+    "fuente3_excel": true
+  },
+  "criterios": {
+    "C1": {
+      "resultado": 100.0,
+      "detalle": {
+        "extraidos": 300,
+        "en_fuentes_conteo_independiente": 300,
+        "por_fuente": {
+          "fuente1_sqlite": {
+            "extraidos": 100,
+            "en_fuente": 100
+          },
+          "fuente2_csv": {
+            "extraidos": 100,
+            "en_fuente": 100
+          },
+          "fuente3_excel": {
+            "extraidos": 100,
+            "en_fuente": 100
+          }
+        },
+        "metodo_conteo": "COUNT(*) en SQLite; csv.reader y openpyxl directos (sin pandas) para CSV y Excel"
+      },
+      "nombre": "Extracción automática",
+      "operador": ">=",
+      "meta": 95.0,
+      "unidad": "%",
+      "cumplio": true
+    },
+    "C2": {
+      "resultado": 100.0,
+      "detalle": {
+        "bundles_validos_sin_error_sembrado": 270,
+        "registros_sin_error_sembrado": 270,
+        "bundles_generados_total": 270,
+        "bundles_validos_total": 270,
+        "alcance": "Validación estructural R4 base + reglas de documento (no es conformidad con la guía del Ministerio)"
+      },
+      "nombre": "RDA válidos",
+      "operador": ">=",
+      "meta": 90.0,
+      "unidad": "%",
+      "cumplio": true
+    },
+    "C3": {
+      "resultado": 100.0,
+      "detalle": {
+        "sembrados": 30,
+        "detectados": 30,
+        "detectados_con_tipo_y_campo_correctos": 30,
+        "no_detectados": [],
+        "falsos_positivos": 0,
+        "lista_falsos_positivos": [],
+        "regla_cruce": "(fuente, id_atencion); si el id está vacío, (fuente, fila)"
+      },
+      "nombre": "Detección de errores",
+      "operador": ">=",
+      "meta": 100.0,
+      "unidad": "%",
+      "cumplio": true
+    },
+    "C4": {
+      "resultado": 0.008439,
+      "detalle": {
+        "promedio_s": 0.008439,
+        "mediana_s": 0.007313,
+        "maximo_s": 0.237597,
+        "minimo_s": 0.000744,
+        "suma_por_registro_s": 2.5317,
+        "total_corrida_s": 3.0128,
+        "atenciones": 300,
+        "metodo": "time.perf_counter() por registro, desde la salida del adaptador hasta el RDA escrito, más la parte proporcional de la lectura del archivo"
+      },
+      "nombre": "Tiempo de procesamiento",
+      "operador": "<=",
+      "meta": 1.0,
+      "unidad": "s",
+      "cumplio": true
+    },
+    "C5": {
+      "resultado": "si",
+      "detalle": {
+        "veredicto": "si",
+        "segundos": 13.5,
+        "minutos": 0.2,
+        "intentos": 1,
+        "inicio": "2026-11-22T19:00:26-05:00",
+        "fin": "2026-11-22T19:00:40-05:00",
+        "verificaciones": {
+          "codigo_y_config_sin_cambios": true,
+          "fuente_conectada": true,
+          "todas_las_filas": true,
+          "bundles_validos": true,
+          "coincide_esperado": true
+        },
+        "motivos": [],
+        "mapeo": {
+          "archivo": "fuente4_eps.yaml",
+          "sha256": "0844b942dc1c796511239297465dd52cbb91b116b85a054f45f197edef2449f6",
+          "contenido": "# Fuente 4 · Exportación de una EPS (prueba del criterio C5)\n# Escrito a partir de mapeos/_plantilla.yaml, solo con el CSV y docs/instrucciones_fuente4.md.\nversion_esquema: 1\n\nfuente:\n  id: fuente4_eps\n  nombre: \"Exportación EPS (fuente nueva, prueba C5)\"\n  tipo: csv\n  ruta: datos/fuentes/fuente4_eps_export.csv\n\nlectura:\n  separador: \"|\"\n  codificacion: latin-1          # el archivo es ASCII; latin-1 es una opción segura\n  fila_encabezado: 1\n\ncolumnas:\n  id_atencion: COD_ATN\n  tipo_documento: DOC_TIPO\n  numero_documento: DOC_NUM\n  sexo: SEXO_PAC\n  fecha_nacimiento: NAC_FECHA\n  fecha_atencion: ATN_FECHA\n  codigo_cie10: DIAG_CIE10\n  # la fuente no trae nombres del paciente (son opcionales)\n\nformatos_fecha:\n  fecha_nacimiento: \"%Y%m%d\"     # 19510825\n  fecha_atencion: \"%Y%m%d\"       # 20260720\n\nequivalencias:\n  sexo:\n    HOMBRE: M\n    MUJER: F\n  tipo_documento:\n    CED: CC\n    TID: TI\n    REG: RC\n    PAS: PA\n"
+        },
+        "fuente": {
+          "archivo": "fuente4_eps_export.csv",
+          "filas_en_fuente": 25,
+          "sha256_antes": "75a62079d3208a72d8548a0664629b3be7abcf0bdcfc5c9d61c26d003cf38979",
+          "sha256_despues": "75a62079d3208a72d8548a0664629b3be7abcf0bdcfc5c9d61c26d003cf38979",
+          "intacta": true
+        },
+        "resumen_procesamiento": {
+          "conectada": true,
+          "error_configuracion": null,
+          "registros": 25,
+          "validos": 25,
+          "con_error": 0,
+          "bundles_generados": 25,
+          "bundles_validos": 25,
+          "errores_por_tipo": {},
+          "primeros_errores": [],
+          "columnas_ignoradas": []
+        },
+        "comparacion_esperado": {
+          "filas_esperadas": 25,
+          "coinciden": 25,
+          "diferencias": 0,
+          "detalle_diferencias": [],
+          "archivo": "esperado_fuente4.csv"
+        },
+        "codigo_congelado": {
+          "fecha": "2026-11-22T18:55:44-05:00",
+          "archivos": 34,
+          "git": {
+            "commit": null
+          },
+          "cambios": {
+            "modificados": [],
+            "eliminados": [],
+            "py_nuevos": []
+          }
+        },
+        "historial_intentos": [
+          {
+            "numero": 1,
+            "hora": "2026-11-22T19:00:35-05:00",
+            "mapeo": "fuente4_eps.yaml",
+            "segundos_desde_inicio": 9.2,
+            "resultado": "conectada",
+            "conectada": true,
+            "error_configuracion": null,
+            "registros": 25,
+            "validos": 25,
+            "con_error": 0,
+            "bundles_generados": 25,
+            "bundles_validos": 25,
+            "errores_por_tipo": {},
+            "primeros_errores": [],
+            "columnas_ignoradas": []
+          }
+        ],
+        "nota": "Tiempo = reloj del sistema entre 'inicio' y 'fin'. Compárese con el cronómetro manual."
+      },
+      "nombre": "Integración de una fuente nueva",
+      "operador": "si/no",
+      "meta": "si",
+      "unidad": "",
+      "cumplio": true
+    }
+  },
+  "hipotesis_h2": {
+    "regla": "Se cumplen C1, C2, C5",
+    "criterios": [
+      "C1",
+      "C2",
+      "C5"
+    ],
+    "estado": "confirmada en entorno simulado"
+  },
+  "entorno": {
+    "python": "3.14.4",
+    "sistema": "Windows-11-10.0.26200-SP0",
+    "fhir_resources": "6.4.0"
+  }
+}

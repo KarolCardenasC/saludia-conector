@@ -1,0 +1,117 @@
+# =====================================================================
+#  SALUDIA · PLANTILLA DE MAPEO DE UNA FUENTE NUEVA
+# =====================================================================
+#  Cómo usarla:
+#   1. Copia este archivo con otro nombre que NO empiece por "_",
+#      por ejemplo:  mapeos/fuente4_csv.yaml
+#   2. Cambia los valores de ejemplo por los de tu fuente.
+#   3. Borra las líneas que no necesites (las opcionales están marcadas).
+#   4. Guarda el archivo en UTF-8.
+#
+#  Reglas de escritura YAML:
+#   - La sangría es con ESPACIOS (2 por nivel), nunca con tabulador.
+#   - Lo que va después de "#" es un comentario y se ignora.
+#   - Pon entre comillas los textos con caracteres especiales
+#     (: # ° , %) y los códigos que sean números ("1", "01").
+#   - Palabras como NO, SI, yes, on, off van SIEMPRE entre comillas.
+# =====================================================================
+
+version_esquema: 1                 # no cambiar
+
+# ---------------------------------------------------------------------
+# 1. ¿Qué fuente es y dónde está?
+# ---------------------------------------------------------------------
+fuente:
+  id: fuente4_csv                  # nombre corto: minúsculas, números y _
+  nombre: "Sistema nuevo de la IPS"  # nombre legible para reportes
+  tipo: csv                        # csv | excel | sqlite
+  ruta: datos/fuentes/mi_archivo.csv   # relativa a la carpeta del proyecto
+
+# ---------------------------------------------------------------------
+# 2. ¿Cómo se lee? (deja solo las opciones de tu tipo de fuente)
+# ---------------------------------------------------------------------
+lectura:
+  # --- CSV ---
+  separador: ";"                   # "," ";" "|" o tab
+  codificacion: utf-8              # utf-8 | utf-8-sig | latin-1 | cp1252
+  fila_encabezado: 1               # fila (como se ve al abrir el archivo) con los nombres de columna
+  # filas_pie: 0                   # OPCIONAL: filas de totales al final que se deben ignorar
+  # comillas: '"'                  # OPCIONAL: carácter que encierra textos
+
+  # --- EXCEL --- (borra el bloque CSV y usa este)
+  # hoja: "Hoja1"                  # nombre de la hoja (o su número, empezando en 0)
+  # fila_encabezado: 1
+  # filas_pie: 0
+
+  # --- SQLITE --- (usa tabla O consulta, no las dos)
+  # tabla: nombre_tabla
+  # consulta: "SELECT ... FROM ..."
+
+# ---------------------------------------------------------------------
+# 3. ¿Qué columna corresponde a cada campo del modelo común?
+#    campo_del_modelo: "Nombre exacto de la columna en tu fuente"
+#    Las columnas de la fuente que no aparezcan aquí se IGNORAN.
+# ---------------------------------------------------------------------
+columnas:
+  # --- obligatorios (deben estar todos, aquí o en valores_fijos) ---
+  id_atencion: "Columna con el id de la atención"
+  tipo_documento: "Columna con el tipo de documento"
+  numero_documento: "Columna con el número de documento"
+  sexo: "Columna con el sexo"
+  fecha_nacimiento: "Columna con la fecha de nacimiento"
+  fecha_atencion: "Columna con la fecha de la atención"
+  codigo_cie10: "Columna con el diagnóstico CIE-10"
+  # --- opcionales ---
+  nombres: "Columna con los nombres"
+  apellidos: "Columna con los apellidos"
+  # nombre_completo: "Columna con el nombre completo"   # en lugar de nombres + apellidos
+  # hora_atencion: "Columna con la hora"                # si la hora viene aparte
+
+# ---------------------------------------------------------------------
+# 4. ¿En qué formato vienen las fechas? (códigos de Python strptime)
+#    %d día · %m mes (número) · %Y año de 4 dígitos · %y año de 2 dígitos
+#    %H hora 00-23 · %I hora 01-12 · %M minutos · %S segundos · %p AM/PM
+#    %b mes abreviado en inglés (Jan) · %B mes en inglés (January)
+#    Ejemplos:  25/03/2026 → "%d/%m/%Y"     2026-03-25 → "%Y-%m-%d"
+#               25.03.2026 → "%d.%m.%Y"     20260325   → "%Y%m%d"
+#               25/03/2026 14:30 → "%d/%m/%Y %H:%M"
+#    Si una columna mezcla dos formatos válidos, usa una lista:
+#      fecha_atencion: ["%d/%m/%Y %H:%M", "%d/%m/%Y"]
+# ---------------------------------------------------------------------
+formatos_fecha:
+  fecha_nacimiento: "%d/%m/%Y"
+  fecha_atencion: "%d/%m/%Y"
+  # hora_atencion: "%H:%M"         # solo si mapeaste hora_atencion
+
+# ---------------------------------------------------------------------
+# 5. ¿Cómo se traducen los códigos propios de la fuente?
+#    valor_en_tu_fuente: valor_estándar   (no distingue mayúsculas)
+#    Sexo estándar: M (masculino) · F (femenino) · I (indeterminado)
+#    Tipo de documento estándar: CC TI RC CE PA PT PE CD SC CN AS MS DE SI
+#    Si un valor de la fuente no está en la tabla, el registro se
+#    reporta como "valor_no_reconocido" (no se adivina).
+# ---------------------------------------------------------------------
+equivalencias:
+  sexo:
+    "H": M
+    "M": F
+  tipo_documento:
+    "C.C.": CC
+    "T.I.": TI
+    "R.C.": RC
+
+# ---------------------------------------------------------------------
+# 6. OPCIONAL · Valor fijo para un campo que la fuente no tiene.
+#    Úsalo solo si de verdad aplica a TODOS los registros.
+#    Un campo va en "columnas" o aquí, nunca en los dos.
+# ---------------------------------------------------------------------
+# valores_fijos:
+#   tipo_documento: CC
+
+# ---------------------------------------------------------------------
+# 7. OPCIONAL · Ajustes de formato
+# ---------------------------------------------------------------------
+# opciones:
+#   valores_vacios: ["", "NULL", "N/A", "-"]   # textos que significan "vacío"
+#   cie10_quitar_punto: true     # J45.9 → J459 (SISPRO no usa punto)
+#   cie10_completar_x: true      # I10 → I10X (convención SISPRO para 3 caracteres)

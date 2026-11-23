@@ -1,0 +1,34 @@
+# Parámetros de la generación de datos sintéticos y de la ejecución.
+# A diferencia de metas.yaml, aquí no hay criterios de éxito.
+
+datos_sinteticos:
+  semilla: 20261122          # semilla fija: la misma semilla produce los mismos datos
+  locale: "es_CO"
+  atenciones_por_fuente: 100
+  # Periodo de las atenciones simuladas
+  fecha_atencion_desde: "2026-01-05"
+  fecha_atencion_hasta: "2026-10-30"
+  # Errores sembrados por fuente y tipo (total 30 = 10 % de 300).
+  # Cada registro sembrado tiene exactamente un error.
+  errores:
+    fuente1_sqlite: {cie10_inexistente: 4, fecha_invalida: 3, campo_obligatorio_vacio: 3}
+    fuente2_csv:    {cie10_inexistente: 3, fecha_invalida: 4, campo_obligatorio_vacio: 3}
+    fuente3_excel:  {cie10_inexistente: 3, fecha_invalida: 3, campo_obligatorio_vacio: 4}
+
+rutas:
+  fuentes: "datos/fuentes"
+  referencia_cie10_oficial: "datos/referencia/cie10_sispro.csv"
+  referencia_cie10_subconjunto: "datos/referencia/cie10_subconjunto.csv"
+  errores_sembrados: "datos/errores_sembrados.csv"
+  mapeos: "mapeos"
+  salidas: "salidas"
+
+ips_simulada:
+  nombre: "IPS Sintética de Soledad (ficticia)"
+  municipio: "Soledad, Atlántico"
+  zona_horaria: "-05:00"     # Colombia (sin horario de verano); FHIR exige zona en dateTime con hora
+
+experimento:
+  # Fuentes del experimento principal (las 300 atenciones de C1 a C4).
+  # La fuente 4 (C5) se corre aparte con el cronómetro.
+  fuentes: [fuente1_sqlite, fuente2_csv, fuente3_excel]

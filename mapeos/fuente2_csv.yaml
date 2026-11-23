@@ -1,0 +1,40 @@
+# Fuente 2 · Exportación CSV de un software antiguo
+version_esquema: 1
+
+fuente:
+  id: fuente2_csv
+  nombre: "Exportación CSV de software antiguo"
+  tipo: csv
+  ruta: datos/fuentes/fuente2_exportacion_antigua.csv
+
+lectura:
+  separador: ","
+  codificacion: cp1252        # Windows-1252, típica de software de escritorio
+  fila_encabezado: 1
+
+columnas:
+  id_atencion: IdAtencion
+  tipo_documento: TipoID
+  numero_documento: NumeroID
+  nombres: Nombres
+  apellidos: Apellidos
+  sexo: Sexo
+  fecha_nacimiento: FechaNacimiento
+  fecha_atencion: FechaAtencion
+  codigo_cie10: CodDiagnostico
+  # CodPrestador y Usuario se ignoran
+
+formatos_fecha:
+  fecha_nacimiento: "%d/%m/%Y"
+  fecha_atencion: "%d/%m/%Y"
+
+equivalencias:
+  sexo:
+    "1": M
+    "2": F
+  tipo_documento:
+    "1": CC
+    "2": TI
+    "3": RC
+    "4": CE
+    "5": PA

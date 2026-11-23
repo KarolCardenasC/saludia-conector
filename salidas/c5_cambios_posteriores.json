@@ -1,0 +1,14 @@
+{
+  "nota": "Cambios posteriores al experimento C5 (después de 'fin'). El veredicto de C5 se calculó con el código congelado sin cambios.",
+  "congelado": "2026-11-22T18:55:44-05:00",
+  "cambios": {
+    "modificados": [
+      "tests/test_fase3.py",
+      "tests/test_fase5.py"
+    ],
+    "eliminados": [],
+    "py_nuevos": []
+  },
+  "conector_sin_cambios": true,
+  "motivo": "Las pruebas tests/test_fase3.py y tests/test_fase5.py suponían que mapeos/ solo tenía los YAML de las fuentes 1 a 3; después de C5 también está fuente4_eps.yaml."
+}

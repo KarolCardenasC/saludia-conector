@@ -1,0 +1,301 @@
+Tabla;Codigo;Nombre;Habilitado
+CIE10;A010;Fiebre tifoidea;SI
+CIE10;A029;Infección debida a Salmonella, no especificada;SI
+CIE10;A039;Shigelosis de tipo no especificado;SI
+CIE10;A059;Intoxicación alimentaria bacteriana, no especificada;SI
+CIE10;A060;Disentería amebiana aguda;SI
+CIE10;A069;Amebiasis, no especificada;SI
+CIE10;A071;Giardiasis [lambliasis];SI
+CIE10;A080;Enteritis debida a rotavirus;SI
+CIE10;A084;Infección intestinal viral, sin otra especificación;SI
+CIE10;A090;Otras gastroenteritis y colitis de origen infeccioso;SI
+CIE10;A099;Gastroenteritis y colitis de origen no especificado;SI
+CIE10;A46X;Erisipela;SI
+CIE10;A539;Sífilis, no especificada;SI
+CIE10;A549;Infección gonocócica, no especificada;SI
+CIE10;A560;Infección de las vías genitourinarias inferiores debida a clamidias;SI
+CIE10;A599;Tricomoniasis, no especificada;SI
+CIE10;A600;Infección de órganos genitales y trayecto urogenital debida a virus del herpes;SI
+CIE10;A630;Verrugas (venéreas) anogenitales;SI
+CIE10;A90X;Fiebre del dengue [dengue clásico];SI
+CIE10;B001;Dermatitis vesicular debida a virus del herpes;SI
+CIE10;B019;Varicela sin complicaciones;SI
+CIE10;B029;Herpes zoster sin complicaciones;SI
+CIE10;B081;Molusco contagioso;SI
+CIE10;B24X;Enfermedad por virus de la inmunodeficiencia humana [VIH], sin otra especificación;SI
+CIE10;B309;Conjuntivitis viral, sin otra especificación;SI
+CIE10;B342;Infección debida a coronavirus, sin otra especificación;SI
+CIE10;B349;Infección viral, no especificada;SI
+CIE10;B351;Tiña de las uñas;SI
+CIE10;B353;Tiña del pie [tinea pedis];SI
+CIE10;B354;Tiña del cuerpo [tinea corporis];SI
+CIE10;B356;Tiña inguinal [tinea cruris];SI
+CIE10;B359;Dermatofitosis, no especificada;SI
+CIE10;B360;Pitiriasis versicolor;SI
+CIE10;B370;Estomatitis candidiásica;SI
+CIE10;B373;Candidiasis de la vulva y de la vagina;SI
+CIE10;B379;Candidiasis, no especificada;SI
+CIE10;B54X;Paludismo [malaria] no especificado;SI
+CIE10;B779;Ascariasis, no especificada;SI
+CIE10;B80X;Enterobiasis;SI
+CIE10;B829;Parasitosis intestinal, sin otra especificación;SI
+CIE10;B850;Pediculosis debida a Pediculus humanus capitis;SI
+CIE10;B86X;Escabiosis;SI
+CIE10;C509;Tumor maligno de la mama, parte no especificada;SI
+CIE10;C539;Tumor maligno del cuello del útero, sin otra especificación;SI
+CIE10;C61X;Tumor maligno de la próstata;SI
+CIE10;D179;Tumor benigno lipomatoso, de sitio no especificado;SI
+CIE10;D229;Nevo melanocítico, sitio no especificado;SI
+CIE10;D259;Leiomioma del útero, sin otra especificación;SI
+CIE10;D500;Anemia por deficiencia de hierro secundaria a pérdida de sangre (crónica);SI
+CIE10;D509;Anemia por deficiencia de hierro sin otra especificación;SI
+CIE10;D649;Anemia de tipo no especificado;SI
+CIE10;D696;Trombocitopenia no especificada;SI
+CIE10;E039;Hipotiroidismo, no especificado;SI
+CIE10;E041;Nódulo tiroideo solitario no tóxico;SI
+CIE10;E049;Bocio no tóxico, no especificado;SI
+CIE10;E059;Tirotoxicosis, no especificada;SI
+CIE10;E109;Diabetes mellitus insulinodependiente sin mención de complicación;SI
+CIE10;E117;Diabetes mellitus no insulinodependiente con complicaciones múltiples;SI
+CIE10;E119;Diabetes mellitus no insulinodependiente sin mención de complicación;SI
+CIE10;E149;Diabetes mellitus, no especificada sin mención de complicación;SI
+CIE10;E46X;Desnutrición proteicocalórica, no especificada;SI
+CIE10;E559;Deficiencia de vitamina D, no especificada;SI
+CIE10;E660;Obesidad debida a exceso de calorías;SI
+CIE10;E669;Obesidad, no especificada;SI
+CIE10;E780;Hipercolesterolemia pura;SI
+CIE10;E781;Hipergliceridemia pura;SI
+CIE10;E782;Hiperlipidemia mixta;SI
+CIE10;E785;Hiperlipidemia no especificada;SI
+CIE10;E790;Hiperuricemia sin signos de artritis inflamatoria y enfermedad tofácea;SI
+CIE10;E86X;Depleción del volumen;SI
+CIE10;E876;Hipopotasemia;SI
+CIE10;F100;Trastornos mentales y del comportamiento debidos al uso de alcohol: intoxicación aguda;SI
+CIE10;F172;Trastornos mentales y del comportamiento debidos al uso de tabaco: síndrome de dependencia;SI
+CIE10;F200;Esquizofrenia paranoide;SI
+CIE10;F319;Trastorno afectivo bipolar, no especificado;SI
+CIE10;F320;Episodio depresivo leve;SI
+CIE10;F321;Episodio depresivo moderado;SI
+CIE10;F329;Episodio depresivo, no especificado;SI
+CIE10;F339;Trastorno depresivo recurrente, no especificado;SI
+CIE10;F410;Trastorno de pánico [ansiedad paroxística episódica];SI
+CIE10;F411;Trastorno de ansiedad generalizada;SI
+CIE10;F412;Trastorno mixto de ansiedad y depresión;SI
+CIE10;F419;Trastorno de ansiedad, no especificado;SI
+CIE10;F432;Trastornos de adaptación;SI
+CIE10;F510;Insomnio no orgánico;SI
+CIE10;F900;Perturbación de la actividad y de la atención;SI
+CIE10;G409;Epilepsia, tipo no especificado;SI
+CIE10;G430;Migraña sin aura [migraña común];SI
+CIE10;G431;Migraña con aura [migraña clásica];SI
+CIE10;G439;Migraña, no especificada;SI
+CIE10;G440;Síndrome de cefalea en racimos;SI
+CIE10;G442;Cefalea debida a tensión;SI
+CIE10;G470;Trastornos del inicio y del mantenimiento del sueño [insomnios];SI
+CIE10;G473;Apnea del sueño;SI
+CIE10;G510;Parálisis de Bell;SI
+CIE10;G560;Síndrome del túnel carpiano;SI
+CIE10;G629;Polineuropatía, no especificada;SI
+CIE10;H000;Orzuelo y otras inflamaciones profundas del párpado;SI
+CIE10;H001;Calacio [chalazión];SI
+CIE10;H010;Blefaritis;SI
+CIE10;H100;Conjuntivitis mucopurulenta;SI
+CIE10;H101;Conjuntivitis atópica aguda;SI
+CIE10;H103;Conjuntivitis aguda, no especificada;SI
+CIE10;H104;Conjuntivitis crónica;SI
+CIE10;H109;Conjuntivitis, no especificada;SI
+CIE10;H110;Pterigión;SI
+CIE10;H269;Catarata, no especificada;SI
+CIE10;H409;Glaucoma, no especificado;SI
+CIE10;H521;Miopía;SI
+CIE10;H522;Astigmatismo;SI
+CIE10;H524;Presbicia;SI
+CIE10;H527;Trastorno de la refracción, no especificado;SI
+CIE10;H603;Otras otitis externas infecciosas;SI
+CIE10;H609;Otitis externa, sin otra especificación;SI
+CIE10;H612;Cerumen impactado;SI
+CIE10;H650;Otitis media aguda serosa;SI
+CIE10;H660;Otitis media supurativa aguda;SI
+CIE10;H669;Otitis media, no especificada;SI
+CIE10;H811;Vértigo paroxístico benigno;SI
+CIE10;H919;Hipoacusia, no especificada;SI
+CIE10;H920;Otalgia;SI
+CIE10;I10X;Hipertensión esencial (primaria);SI
+CIE10;I119;Enfermedad cardíaca hipertensiva sin insuficiencia cardíaca (congestiva);SI
+CIE10;I209;Angina de pecho, no especificada;SI
+CIE10;I251;Enfermedad aterosclerótica del corazón;SI
+CIE10;I500;Insuficiencia cardíaca congestiva;SI
+CIE10;I509;Insuficiencia cardíaca, no especificada;SI
+CIE10;I839;Venas varicosas de los miembros inferiores sin úlcera ni inflamación;SI
+CIE10;I951;Hipotensión ortostática;SI
+CIE10;I959;Hipotensión, no especificada;SI
+CIE10;J00X;Rinofaringitis aguda [resfriado común];SI
+CIE10;J010;Sinusitis maxilar aguda;SI
+CIE10;J019;Sinusitis aguda, no especificada;SI
+CIE10;J020;Faringitis estreptocócica;SI
+CIE10;J029;Faringitis aguda, no especificada;SI
+CIE10;J030;Amigdalitis estreptocócica;SI
+CIE10;J039;Amigdalitis aguda, no especificada;SI
+CIE10;J040;Laringitis aguda;SI
+CIE10;J050;Laringitis obstructiva aguda [crup];SI
+CIE10;J069;Infección aguda de las vías respiratorias superiores, no especificada;SI
+CIE10;J111;Influenza con otras manifestaciones respiratorias, virus no identificado;SI
+CIE10;J129;Neumonía viral, no especificada;SI
+CIE10;J180;Bronconeumonía, no especificada;SI
+CIE10;J189;Neumonía, no especificada;SI
+CIE10;J209;Bronquitis aguda, no especificada;SI
+CIE10;J210;Bronquiolitis aguda debida a virus sincitial respiratorio;SI
+CIE10;J219;Bronquiolitis aguda, no especificada;SI
+CIE10;J300;Rinitis vasomotora;SI
+CIE10;J301;Rinitis alérgica debida al polen;SI
+CIE10;J303;Otras rinitis alérgicas;SI
+CIE10;J304;Rinitis alérgica, no especificada;SI
+CIE10;J310;Rinitis crónica;SI
+CIE10;J320;Sinusitis maxilar crónica;SI
+CIE10;J329;Sinusitis crónica, no especificada;SI
+CIE10;J342;Desviación del tabique nasal;SI
+CIE10;J350;Amigdalitis crónica;SI
+CIE10;J352;Hipertrofia de las adenoides;SI
+CIE10;J40X;Bronquitis, no especificada como aguda o crónica;SI
+CIE10;J42X;Bronquitis crónica no especificada;SI
+CIE10;J449;Enfermedad pulmonar obstructiva crónica, no especificada;SI
+CIE10;J450;Asma predominantemente alérgica;SI
+CIE10;J459;Asma, no especificada;SI
+CIE10;J46X;Estado asmático;SI
+CIE10;K021;Caries de la dentina;SI
+CIE10;K029;Caries dental, no especificada;SI
+CIE10;K047;Absceso periapical sin fístula;SI
+CIE10;K051;Gingivitis crónica;SI
+CIE10;K053;Periodontitis crónica;SI
+CIE10;K121;Otras formas de estomatitis;SI
+CIE10;K210;Enfermedad del reflujo gastroesofágico con esofagitis;SI
+CIE10;K219;Enfermedad del reflujo gastroesofágico sin esofagitis;SI
+CIE10;K259;Úlcera gástrica, no especificada como aguda ni crónica, sin hemorragia ni perforación;SI
+CIE10;K291;Otras gastritis agudas;SI
+CIE10;K293;Gastritis crónica superficial;SI
+CIE10;K295;Gastritis crónica, no especificada;SI
+CIE10;K297;Gastritis, no especificada;SI
+CIE10;K30X;Dispepsia;SI
+CIE10;K409;Hernia inguinal unilateral o no especificada, sin obstrucción ni gangrena;SI
+CIE10;K429;Hernia umbilical sin obstrucción ni gangrena;SI
+CIE10;K580;Síndrome del colon irritable con diarrea;SI
+CIE10;K589;Síndrome del colon irritable sin diarrea;SI
+CIE10;K590;Constipación;SI
+CIE10;K602;Fisura anal, no especificada;SI
+CIE10;K760;Degeneración grasa del hígado, no clasificada en otra parte;SI
+CIE10;K802;Cálculo de la vesícula biliar sin colecistitis;SI
+CIE10;K819;Colecistitis, no especificada;SI
+CIE10;L010;Impétigo [cualquier sitio] [cualquier organismo];SI
+CIE10;L022;Absceso cutáneo, furúnculo y carbunco del tronco;SI
+CIE10;L029;Absceso cutáneo, furúnculo y carbunco de sitio no especificado;SI
+CIE10;L039;Celulitis de sitio no especificado;SI
+CIE10;L209;Dermatitis atópica, no especificada;SI
+CIE10;L219;Dermatitis seborreica, no especificada;SI
+CIE10;L239;Dermatitis alérgica de contacto, de causa no especificada;SI
+CIE10;L259;Dermatitis de contacto, forma no especificada, de causa no especificada;SI
+CIE10;L309;Dermatitis, no especificada;SI
+CIE10;L400;Psoriasis vulgar;SI
+CIE10;L500;Urticaria alérgica;SI
+CIE10;L509;Urticaria, no especificada;SI
+CIE10;L600;Uña encarnada;SI
+CIE10;L700;Acné vulgar;SI
+CIE10;L709;Acné, no especificado;SI
+CIE10;L84X;Callos y callosidades;SI
+CIE10;M069;Artritis reumatoide, no especificada;SI
+CIE10;M109;Gota, no especificada;SI
+CIE10;M139;Artritis, no especificada;SI
+CIE10;M159;Poliartrosis, no especificada;SI
+CIE10;M179;Gonartrosis, no especificada;SI
+CIE10;M199;Artrosis, no especificada;SI
+CIE10;M201;Hallux valgus (adquirido);SI
+CIE10;M255;Dolor en articulación;SI
+CIE10;M256;Rigidez articular, no clasificada en otra parte;SI
+CIE10;M419;Escoliosis, no especificada;SI
+CIE10;M479;Espondilosis, no especificada;SI
+CIE10;M511;Trastorno de disco lumbar y otros, con radiculopatía;SI
+CIE10;M531;Síndrome cervicobraquial;SI
+CIE10;M541;Radiculopatía;SI
+CIE10;M542;Cervicalgia;SI
+CIE10;M543;Ciática;SI
+CIE10;M544;Lumbago con ciática;SI
+CIE10;M545;Lumbago no especificado;SI
+CIE10;M546;Dolor en la columna dorsal;SI
+CIE10;M549;Dorsalgia, no especificada;SI
+CIE10;M626;Distensión muscular;SI
+CIE10;M653;Dedo en gatillo;SI
+CIE10;M654;Tenosinovitis de estiloides radial [de Quervain];SI
+CIE10;M751;Síndrome de manguito rotatorio;SI
+CIE10;M754;Síndrome de abducción dolorosa del hombro;SI
+CIE10;M759;Lesión del hombro, no especificada;SI
+CIE10;M766;Tendinitis aquiliana;SI
+CIE10;M770;Epicondilitis media;SI
+CIE10;M771;Epicondilitis lateral;SI
+CIE10;M773;Espolón calcáneo;SI
+CIE10;M791;Mialgia;SI
+CIE10;M796;Dolor en miembro;SI
+CIE10;M797;Fibromialgia;SI
+CIE10;M819;Osteoporosis, no especificada;SI
+CIE10;N10X;Nefritis tubulointersticial aguda;SI
+CIE10;N189;Insuficiencia renal crónica, no especificada;SI
+CIE10;N200;Cálculo del riñón;SI
+CIE10;N209;Cálculo urinario, no especificado;SI
+CIE10;N23X;Cólico renal, no especificado;SI
+CIE10;N300;Cistitis aguda;SI
+CIE10;N309;Cistitis, no especificada;SI
+CIE10;N390;Infección de vías urinarias, sitio no especificado;SI
+CIE10;N393;Incontinencia urinaria por tensión;SI
+CIE10;N40X;Hiperplasia de la próstata;SI
+CIE10;N410;Prostatitis aguda;SI
+CIE10;N63X;Masa no especificada en la mama;SI
+CIE10;N644;Mastodinia;SI
+CIE10;N72X;Enfermedad inflamatoria del cuello uterino;SI
+CIE10;N760;Vaginitis aguda;SI
+CIE10;N912;Amenorrea, sin otra especificación;SI
+CIE10;N920;Menstruación excesiva y frecuente con ciclo regular;SI
+CIE10;N943;Síndrome de tensión premenstrual;SI
+CIE10;N946;Dismenorrea, no especificada;SI
+CIE10;N951;Estados menopáusicos y climatéricos femeninos;SI
+CIE10;R002;Palpitaciones;SI
+CIE10;R05X;Tos;SI
+CIE10;R060;Disnea;SI
+CIE10;R074;Dolor en el pecho, no especificado;SI
+CIE10;R101;Dolor abdominal localizado en parte superior;SI
+CIE10;R102;Dolor pélvico y perineal;SI
+CIE10;R103;Dolor localizado en otras partes inferiores del abdomen;SI
+CIE10;R104;Otros dolores abdominales y los no especificados;SI
+CIE10;R11X;Náusea y vómito;SI
+CIE10;R12X;Acidez;SI
+CIE10;R14X;Flatulencia y afecciones afines;SI
+CIE10;R21X;Salpullido y otras erupciones cutáneas no específicas;SI
+CIE10;R42X;Mareo y desvanecimiento;SI
+CIE10;R509;Fiebre, no especificada;SI
+CIE10;R51X;Cefalea;SI
+CIE10;R529;Dolor, no especificado;SI
+CIE10;R53X;Malestar y fatiga;SI
+CIE10;R55X;Síncope y colapso;SI
+CIE10;R630;Anorexia;SI
+CIE10;R634;Pérdida anormal de peso;SI
+CIE10;R739;Hiperglicemia, no especificada;SI
+CIE10;S000;Traumatismo superficial del cuero cabelludo;SI
+CIE10;S060;Concusión;SI
+CIE10;S134;Esguince y torcedura de la columna cervical;SI
+CIE10;S335;Esguince y torcedura de la columna lumbar;SI
+CIE10;S610;Herida de dedo(s) de la mano, sin daño de la(s) uña(s);SI
+CIE10;S934;Esguince y torcedura del tobillo;SI
+CIE10;T149;Traumatismo, no especificado;SI
+CIE10;T784;Alergia no especificada;SI
+CIE10;Z000;Examen médico general;SI
+CIE10;Z001;Control de salud de rutina del niño;SI
+CIE10;Z003;Examen del estado de desarrollo del adolescente;SI
+CIE10;Z010;Examen de ojos y de la visión;SI
+CIE10;Z012;Examen odontológico;SI
+CIE10;Z014;Examen ginecológico (general) (de rutina);SI
+CIE10;Z123;Examen especial de pesquisa de tumor de la mama;SI
+CIE10;Z124;Examen especial de pesquisa de tumor del cuello uterino;SI
+CIE10;Z125;Examen especial de pesquisa de tumor de la próstata;SI
+CIE10;Z300;Consejo y asesoramiento general sobre la anticoncepción;SI
+CIE10;Z304;Supervisión del uso de drogas anticonceptivas;SI
+CIE10;Z321;Embarazo confirmado;SI
+CIE10;Z348;Supervisión de otros embarazos normales;SI
+CIE10;Z392;Seguimiento postparto, de rutina;SI
+CIE10;Z733;Problemas relacionados con el estrés, no clasificados en otra parte;SI

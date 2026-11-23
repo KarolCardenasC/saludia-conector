@@ -1,0 +1,38 @@
+# Fuente 4 · Exportación de una EPS (prueba del criterio C5)
+# Escrito a partir de mapeos/_plantilla.yaml, solo con el CSV y docs/instrucciones_fuente4.md.
+version_esquema: 1
+
+fuente:
+  id: fuente4_eps
+  nombre: "Exportación EPS (fuente nueva, prueba C5)"
+  tipo: csv
+  ruta: datos/fuentes/fuente4_eps_export.csv
+
+lectura:
+  separador: "|"
+  codificacion: latin-1          # el archivo es ASCII; latin-1 es una opción segura
+  fila_encabezado: 1
+
+columnas:
+  id_atencion: COD_ATN
+  tipo_documento: DOC_TIPO
+  numero_documento: DOC_NUM
+  sexo: SEXO_PAC
+  fecha_nacimiento: NAC_FECHA
+  fecha_atencion: ATN_FECHA
+  codigo_cie10: DIAG_CIE10
+  # la fuente no trae nombres del paciente (son opcionales)
+
+formatos_fecha:
+  fecha_nacimiento: "%Y%m%d"     # 19510825
+  fecha_atencion: "%Y%m%d"       # 20260720
+
+equivalencias:
+  sexo:
+    HOMBRE: M
+    MUJER: F
+  tipo_documento:
+    CED: CC
+    TID: TI
+    REG: RC
+    PAS: PA

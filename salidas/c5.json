@@ -1,0 +1,79 @@
+{
+  "veredicto": "si",
+  "segundos": 13.5,
+  "minutos": 0.2,
+  "intentos": 1,
+  "inicio": "2026-11-22T19:00:26-05:00",
+  "fin": "2026-11-22T19:00:40-05:00",
+  "verificaciones": {
+    "codigo_y_config_sin_cambios": true,
+    "fuente_conectada": true,
+    "todas_las_filas": true,
+    "bundles_validos": true,
+    "coincide_esperado": true
+  },
+  "motivos": [],
+  "mapeo": {
+    "archivo": "fuente4_eps.yaml",
+    "sha256": "0844b942dc1c796511239297465dd52cbb91b116b85a054f45f197edef2449f6",
+    "contenido": "# Fuente 4 · Exportación de una EPS (prueba del criterio C5)\n# Escrito a partir de mapeos/_plantilla.yaml, solo con el CSV y docs/instrucciones_fuente4.md.\nversion_esquema: 1\n\nfuente:\n  id: fuente4_eps\n  nombre: \"Exportación EPS (fuente nueva, prueba C5)\"\n  tipo: csv\n  ruta: datos/fuentes/fuente4_eps_export.csv\n\nlectura:\n  separador: \"|\"\n  codificacion: latin-1          # el archivo es ASCII; latin-1 es una opción segura\n  fila_encabezado: 1\n\ncolumnas:\n  id_atencion: COD_ATN\n  tipo_documento: DOC_TIPO\n  numero_documento: DOC_NUM\n  sexo: SEXO_PAC\n  fecha_nacimiento: NAC_FECHA\n  fecha_atencion: ATN_FECHA\n  codigo_cie10: DIAG_CIE10\n  # la fuente no trae nombres del paciente (son opcionales)\n\nformatos_fecha:\n  fecha_nacimiento: \"%Y%m%d\"     # 19510825\n  fecha_atencion: \"%Y%m%d\"       # 20260720\n\nequivalencias:\n  sexo:\n    HOMBRE: M\n    MUJER: F\n  tipo_documento:\n    CED: CC\n    TID: TI\n    REG: RC\n    PAS: PA\n"
+  },
+  "fuente": {
+    "archivo": "fuente4_eps_export.csv",
+    "filas_en_fuente": 25,
+    "sha256_antes": "75a62079d3208a72d8548a0664629b3be7abcf0bdcfc5c9d61c26d003cf38979",
+    "sha256_despues": "75a62079d3208a72d8548a0664629b3be7abcf0bdcfc5c9d61c26d003cf38979",
+    "intacta": true
+  },
+  "resumen_procesamiento": {
+    "conectada": true,
+    "error_configuracion": null,
+    "registros": 25,
+    "validos": 25,
+    "con_error": 0,
+    "bundles_generados": 25,
+    "bundles_validos": 25,
+    "errores_por_tipo": {},
+    "primeros_errores": [],
+    "columnas_ignoradas": []
+  },
+  "comparacion_esperado": {
+    "filas_esperadas": 25,
+    "coinciden": 25,
+    "diferencias": 0,
+    "detalle_diferencias": [],
+    "archivo": "esperado_fuente4.csv"
+  },
+  "codigo_congelado": {
+    "fecha": "2026-11-22T18:55:44-05:00",
+    "archivos": 34,
+    "git": {
+      "commit": null
+    },
+    "cambios": {
+      "modificados": [],
+      "eliminados": [],
+      "py_nuevos": []
+    }
+  },
+  "historial_intentos": [
+    {
+      "numero": 1,
+      "hora": "2026-11-22T19:00:35-05:00",
+      "mapeo": "fuente4_eps.yaml",
+      "segundos_desde_inicio": 9.2,
+      "resultado": "conectada",
+      "conectada": true,
+      "error_configuracion": null,
+      "registros": 25,
+      "validos": 25,
+      "con_error": 0,
+      "bundles_generados": 25,
+      "bundles_validos": 25,
+      "errores_por_tipo": {},
+      "primeros_errores": [],
+      "columnas_ignoradas": []
+    }
+  ],
+  "nota": "Tiempo = reloj del sistema entre 'inicio' y 'fin'. Compárese con el cronómetro manual."
+}

@@ -1,0 +1,278 @@
+{
+  "generado": "2026-11-22T19:05:38-05:00",
+  "total_hallazgos": 30,
+  "registros_con_error": 30,
+  "nota": "Los registros con error se reportan; no se borran ni se corrigen y no generan RDA.",
+  "hallazgos": [
+    {
+      "id_atencion": "70012",
+      "fuente": "fuente1_sqlite",
+      "fila": 12,
+      "campo": "numero_documento",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'numero_documento' está vacío"
+    },
+    {
+      "id_atencion": "70015",
+      "fuente": "fuente1_sqlite",
+      "fila": 15,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "04/03/2026 08:30",
+      "mensaje": "'04/03/2026 08:30' no corresponde al formato AAAA-MM-DD HH:MM"
+    },
+    {
+      "id_atencion": "70047",
+      "fuente": "fuente1_sqlite",
+      "fila": 47,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "2026-02-30 09:15",
+      "mensaje": "'2026-02-30 09:15' no existe en el calendario (formato esperado AAAA-MM-DD HH:MM)"
+    },
+    {
+      "id_atencion": "70056",
+      "fuente": "fuente1_sqlite",
+      "fila": 56,
+      "campo": "sexo",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'sexo' está vacío"
+    },
+    {
+      "id_atencion": "70061",
+      "fuente": "fuente1_sqlite",
+      "fila": 61,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "J0O9",
+      "mensaje": "'J0O9' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+    },
+    {
+      "id_atencion": "70063",
+      "fuente": "fuente1_sqlite",
+      "fila": 63,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "E999",
+      "mensaje": "El código 'E999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "70067",
+      "fuente": "fuente1_sqlite",
+      "fila": 67,
+      "campo": "fecha_nacimiento",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "1985-02-29",
+      "mensaje": "'1985-02-29' no existe en el calendario (formato esperado AAAA-MM-DD)"
+    },
+    {
+      "id_atencion": "70072",
+      "fuente": "fuente1_sqlite",
+      "fila": 72,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "H999",
+      "mensaje": "El código 'H999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "70079",
+      "fuente": "fuente1_sqlite",
+      "fila": 79,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "K999",
+      "mensaje": "El código 'K999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "70089",
+      "fuente": "fuente1_sqlite",
+      "fila": 89,
+      "campo": "tipo_documento",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'tipo_documento' está vacío"
+    },
+    {
+      "id_atencion": "AT2026-1012",
+      "fuente": "fuente2_csv",
+      "fila": 13,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "31/02/2026",
+      "mensaje": "'31/02/2026' no existe en el calendario (formato esperado DD/MM/AAAA)"
+    },
+    {
+      "id_atencion": "AT2026-1016",
+      "fuente": "fuente2_csv",
+      "fila": 17,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "P999",
+      "mensaje": "El código 'P999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "AT2026-1030",
+      "fuente": "fuente2_csv",
+      "fila": 31,
+      "campo": "fecha_nacimiento",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'fecha_nacimiento' está vacío"
+    },
+    {
+      "id_atencion": "AT2026-1038",
+      "fuente": "fuente2_csv",
+      "fila": 39,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "I1OX",
+      "mensaje": "'I1OX' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+    },
+    {
+      "id_atencion": "AT2026-1039",
+      "fuente": "fuente2_csv",
+      "fila": 40,
+      "campo": "fecha_nacimiento",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "12/14/1990",
+      "mensaje": "'12/14/1990' no corresponde al formato DD/MM/AAAA"
+    },
+    {
+      "id_atencion": "AT2026-1056",
+      "fuente": "fuente2_csv",
+      "fila": 57,
+      "campo": "fecha_atencion",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "   ",
+      "mensaje": "El campo obligatorio 'fecha_atencion' está vacío"
+    },
+    {
+      "id_atencion": "AT2026-1057",
+      "fuente": "fuente2_csv",
+      "fila": 58,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "D999",
+      "mensaje": "El código 'D999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "AT2026-1082",
+      "fuente": "fuente2_csv",
+      "fila": 83,
+      "campo": "fecha_nacimiento",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "15-07-1978",
+      "mensaje": "'15-07-1978' no corresponde al formato DD/MM/AAAA"
+    },
+    {
+      "id_atencion": "AT2026-1095",
+      "fuente": "fuente2_csv",
+      "fila": 96,
+      "campo": "codigo_cie10",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'codigo_cie10' está vacío"
+    },
+    {
+      "id_atencion": "AT2026-1097",
+      "fuente": "fuente2_csv",
+      "fila": 98,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "2026-03-15",
+      "mensaje": "'2026-03-15' no corresponde al formato DD/MM/AAAA"
+    },
+    {
+      "id_atencion": "",
+      "fuente": "fuente3_excel",
+      "fila": 6,
+      "campo": "id_atencion",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'id_atencion' está vacío"
+    },
+    {
+      "id_atencion": "3",
+      "fuente": "fuente3_excel",
+      "fila": 7,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "15/03/2026",
+      "mensaje": "'15/03/2026' no corresponde al formato DD-MM-AAAA"
+    },
+    {
+      "id_atencion": "27",
+      "fuente": "fuente3_excel",
+      "fila": 31,
+      "campo": "fecha_nacimiento",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "29-02-2025",
+      "mensaje": "'29-02-2025' no existe en el calendario (formato esperado DD-MM-AAAA)"
+    },
+    {
+      "id_atencion": "50",
+      "fuente": "fuente3_excel",
+      "fila": 54,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "Ñ100",
+      "mensaje": "'Ñ100' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+    },
+    {
+      "id_atencion": "51",
+      "fuente": "fuente3_excel",
+      "fila": 55,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "J4S9",
+      "mensaje": "'J4S9' no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo"
+    },
+    {
+      "id_atencion": "55",
+      "fuente": "fuente3_excel",
+      "fila": 59,
+      "campo": "codigo_cie10",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'codigo_cie10' está vacío"
+    },
+    {
+      "id_atencion": "70",
+      "fuente": "fuente3_excel",
+      "fila": 74,
+      "campo": "fecha_atencion",
+      "tipo_error": "fecha_invalida",
+      "valor_encontrado": "31-04-2026",
+      "mensaje": "'31-04-2026' no existe en el calendario (formato esperado DD-MM-AAAA)"
+    },
+    {
+      "id_atencion": "71",
+      "fuente": "fuente3_excel",
+      "fila": 75,
+      "campo": "numero_documento",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'numero_documento' está vacío"
+    },
+    {
+      "id_atencion": "74",
+      "fuente": "fuente3_excel",
+      "fila": 78,
+      "campo": "codigo_cie10",
+      "tipo_error": "cie10_inexistente",
+      "valor_encontrado": "C999",
+      "mensaje": "El código 'C999' no existe en el catálogo CIE-10"
+    },
+    {
+      "id_atencion": "84",
+      "fuente": "fuente3_excel",
+      "fila": 88,
+      "campo": "sexo",
+      "tipo_error": "campo_obligatorio_vacio",
+      "valor_encontrado": "",
+      "mensaje": "El campo obligatorio 'sexo' está vacío"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "resourceType": "Bundle",
+  "id": "e160b388-1985-5e7c-9d66-d07d5a3e0946",
+  "meta": {
+    "tag": [
+      {
+        "system": "urn:saludia:etiquetas",
+        "code": "sintetico",
+        "display": "Datos sintéticos · prototipo académico"
+      }
+    ]
+  },
+  "identifier": {
+    "system": "urn:saludia:rda",
+    "value": "fuente1_sqlite-70001"
+  },
+  "type": "document",
+  "timestamp": "2026-11-22T19:05:38-05:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:f7a90656-cc54-5357-8138-f761c863b624",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "f7a90656-cc54-5357-8138-f761c863b624",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "34133-9",
+              "display": "Summary of episode note"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2"
+        },
+        "date": "2026-01-06T11:25:00-05:00",
+        "author": [
+          {
+            "display": "IPS Sintética de Soledad (ficticia)"
+          }
+        ],
+        "title": "Resumen Digital de Atención (RDA) · prototipo académico, datos sintéticos",
+        "section": [
+          {
+            "title": "Diagnósticos de la atención",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "29548-5",
+                  "display": "Diagnosis Narrative"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Diagnóstico principal: D509 Anemia por deficiencia de hierro sin otra especificación</div>"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "276abeb0-6ff7-5844-9aea-1de0a54335c8",
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:saludia:tipo-documento",
+                  "code": "CC",
+                  "display": "Cédula de ciudadanía"
+                }
+              ]
+            },
+            "system": "urn:saludia:documento:cc",
+            "value": "296012623"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1986-11-05",
+        "name": [
+          {
+            "family": "Navarro Osorio",
+            "given": [
+              "Vanessa",
+              "María"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "020bce11-8b77-5635-ab95-6d25e24813e2",
+        "identifier": [
+          {
+            "system": "urn:saludia:atencion:fuente1_sqlite",
+            "value": "70001"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8"
+        },
+        "period": {
+          "start": "2026-01-06T11:25:00-05:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2"
+            },
+            "rank": 1
+          }
+        ],
+        "serviceProvider": {
+          "display": "IPS Sintética de Soledad (ficticia)"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "328904b5-d3cf-5638-8706-caa9ddb5f4f2",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10",
+              "code": "D50.9",
+              "display": "Anemia por deficiencia de hierro sin otra especificación"
+            },
+            {
+              "system": "urn:saludia:cie10-sispro",
+              "code": "D509"
+            }
+          ],
+          "text": "D509 Anemia por deficiencia de hierro sin otra especificación"
+        },
+        "subject": {
+          "reference": "urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2"
+        }
+      }
+    }
+  ]
+}

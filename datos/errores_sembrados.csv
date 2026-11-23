@@ -1,0 +1,31 @@
+fuente,id_atencion,fila,campo,tipo_error,valor,id_original
+fuente1_sqlite,70012,12,numero_documento,campo_obligatorio_vacio,,70012
+fuente1_sqlite,70015,15,fecha_atencion,fecha_invalida,04/03/2026 08:30,70015
+fuente1_sqlite,70047,47,fecha_atencion,fecha_invalida,2026-02-30 09:15,70047
+fuente1_sqlite,70056,56,sexo,campo_obligatorio_vacio,,70056
+fuente1_sqlite,70061,61,codigo_cie10,cie10_inexistente,J0O9,70061
+fuente1_sqlite,70063,63,codigo_cie10,cie10_inexistente,E999,70063
+fuente1_sqlite,70067,67,fecha_nacimiento,fecha_invalida,1985-02-29,70067
+fuente1_sqlite,70072,72,codigo_cie10,cie10_inexistente,H999,70072
+fuente1_sqlite,70079,79,codigo_cie10,cie10_inexistente,K999,70079
+fuente1_sqlite,70089,89,tipo_documento,campo_obligatorio_vacio,,70089
+fuente2_csv,AT2026-1012,13,fecha_atencion,fecha_invalida,31/02/2026,AT2026-1012
+fuente2_csv,AT2026-1016,17,codigo_cie10,cie10_inexistente,P999,AT2026-1016
+fuente2_csv,AT2026-1030,31,fecha_nacimiento,campo_obligatorio_vacio,,AT2026-1030
+fuente2_csv,AT2026-1038,39,codigo_cie10,cie10_inexistente,I1OX,AT2026-1038
+fuente2_csv,AT2026-1039,40,fecha_nacimiento,fecha_invalida,12/14/1990,AT2026-1039
+fuente2_csv,AT2026-1056,57,fecha_atencion,campo_obligatorio_vacio,   ,AT2026-1056
+fuente2_csv,AT2026-1057,58,codigo_cie10,cie10_inexistente,D999,AT2026-1057
+fuente2_csv,AT2026-1082,83,fecha_nacimiento,fecha_invalida,15-07-1978,AT2026-1082
+fuente2_csv,AT2026-1095,96,codigo_cie10,campo_obligatorio_vacio,,AT2026-1095
+fuente2_csv,AT2026-1097,98,fecha_atencion,fecha_invalida,2026-03-15,AT2026-1097
+fuente3_excel,,6,id_atencion,campo_obligatorio_vacio,,2
+fuente3_excel,3,7,fecha_atencion,fecha_invalida,15/03/2026,3
+fuente3_excel,27,31,fecha_nacimiento,fecha_invalida,29-02-2025,27
+fuente3_excel,50,54,codigo_cie10,cie10_inexistente,Ñ100,50
+fuente3_excel,51,55,codigo_cie10,cie10_inexistente,J4S9,51
+fuente3_excel,55,59,codigo_cie10,campo_obligatorio_vacio,,55
+fuente3_excel,70,74,fecha_atencion,fecha_invalida,31-04-2026,70
+fuente3_excel,71,75,numero_documento,campo_obligatorio_vacio,,71
+fuente3_excel,74,78,codigo_cie10,cie10_inexistente,C999,74
+fuente3_excel,84,88,sexo,campo_obligatorio_vacio,,84

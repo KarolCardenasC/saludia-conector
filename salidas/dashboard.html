@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SALUDIA · Resultados del prototipo · 2026-11-22 19:05</title>
+<style>
+:root{
+  color-scheme:light;
+  --fondo:#fbfaf7; --superficie:#ffffff; --superficie-2:#f6f4ef;
+  --tinta:#1b2330; --tinta-2:#465162; --tinta-3:#646d7a; --borde:#e6e2d8; --grid:#ece9e1; --base:#c9c5ba;
+  --cielo:#2a78d6; --cielo-texto:#1f5fae; --cielo-suave:#e7f0fb;
+  --menta:#1baf7a; --menta-texto:#0e7350; --menta-suave:#e2f5ed;
+  --lavanda-texto:#5546b8; --lavanda-suave:#efecfb;
+  --coral:#e5705c; --coral-texto:#ad3d2a; --coral-suave:#fdebe7;
+  --ambar:#e9a21b; --ambar-texto:#7d5200; --ambar-suave:#fff3d6;
+  --naranja:#e8730c; --naranja-texto:#a24f04;
+  --serie-1:#2a78d6; --serie-2:#1baf7a; --serie-3:#c0559f;
+  --sombra:0 1px 2px rgba(27,35,48,.05),0 6px 20px rgba(27,35,48,.06);
+  --radio:16px;
+  --fuente:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular","Cascadia Code",Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --fondo:#121417; --superficie:#1a1d21; --superficie-2:#20242a;
+    --tinta:#eef0f2; --tinta-2:#c3c8d0; --tinta-3:#9ba3ae; --borde:#2b3038; --grid:#262a31; --base:#3a3f47;
+    --cielo-texto:#8cbcf2; --cielo-suave:#1c2a3b; --menta-texto:#5fd3a6; --menta-suave:#173029;
+    --lavanda-texto:#b9b0f5; --lavanda-suave:#25223a; --coral-texto:#f39a89; --coral-suave:#3a2220;
+    --ambar-texto:#f5c766; --ambar-suave:#352a14; --naranja-texto:#f6a45c;
+    --serie-1:#3987e5; --serie-2:#199e70; --serie-3:#d066b0;
+    --sombra:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--fuente);font-size:15px;line-height:1.55}
+code,pre{font-family:var(--mono);font-size:.86em}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 .5rem}
+h2{font-size:1.25rem;margin-top:2.4rem}
+h3{font-size:1rem}
+.saltar{position:absolute;left:-999px}.saltar:focus{left:1rem;top:1rem;background:var(--superficie);padding:.5rem;z-index:9}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.sub{font-weight:400;color:var(--tinta-3);font-size:.85em}
+.nota{color:var(--tinta-3);font-size:.88rem;margin:.25rem 0 .8rem}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.cabecera,main,.pie{max-width:1220px;margin:0 auto;padding:0 24px}
+.cabecera{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px}
+.marca{display:flex;align-items:center;gap:12px}
+.logo{width:44px;height:44px}
+.nombre{margin:0;font-weight:800;letter-spacing:.06em;font-size:1.15rem}
+.desc{margin:0;color:var(--tinta-3);font-size:.85rem}
+.leyenda-academica{margin:0;background:var(--lavanda-suave);color:var(--lavanda-texto);border-radius:999px;padding:.4rem .9rem;font-size:.85rem;font-weight:600}
+.heroe{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:center;margin-top:22px;background:linear-gradient(135deg,var(--cielo-suave),var(--menta-suave));border-radius:24px;padding:32px}
+.heroe h1{font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.01em}
+.lead{color:var(--tinta-2);max-width:60ch}
+.chips{list-style:none;padding:0;margin:1rem 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--superficie);border:1px solid var(--borde);border-radius:999px;padding:.3rem .75rem;font-size:.84rem;color:var(--tinta-2)}
+.heroe-cifra{background:var(--superficie);border-radius:var(--radio);padding:22px;box-shadow:var(--sombra)}
+.heroe-cifra p{margin:.2rem 0}
+.cifra{font-size:2.8rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--cielo-texto)}
+.cifra small{font-size:1.2rem;color:var(--tinta-3);font-weight:600}
+.h2{margin-top:.8rem!important;padding:.45rem .7rem;border-radius:10px;font-size:.9rem}
+.h2.ok{background:var(--menta-suave);color:var(--menta-texto)} .h2.mal{background:var(--coral-suave);color:var(--coral-texto)} .h2.pend{background:var(--ambar-suave);color:var(--ambar-texto)}
+.alcance{position:relative;border:2px dashed var(--naranja);border-radius:var(--radio);padding:30px 16px 16px;margin-top:14px;background:var(--superficie)}
+.alcance-etq{position:absolute;top:-12px;left:16px;background:var(--fondo);color:var(--naranja-texto);font-weight:700;padding:0 .5rem;font-size:.9rem}
+.stepper{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;counter-reset:p}
+.stepper li{position:relative;display:flex;flex-direction:column;gap:4px;padding-top:44px;font-size:.84rem}
+.stepper li strong{font-size:.86rem}
+.stepper li span:last-child{color:var(--tinta-3)}
+.stepper li::before{content:"";position:absolute;top:17px;left:36px;right:-10px;height:2px;background:var(--borde)}
+.stepper li:last-child::before{display:none}
+.nodo{position:absolute;top:0;left:0;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--naranja);color:#fff;z-index:1}
+.nodo.sin-num{background:var(--tinta);}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.kpi{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);box-shadow:var(--sombra);padding:16px;display:flex;flex-direction:column;gap:10px}
+.kpi header{display:flex;gap:8px;align-items:baseline}
+.kpi-id{font-weight:800;color:var(--lavanda-texto);background:var(--lavanda-suave);border-radius:8px;padding:.05rem .45rem;font-size:.85rem}
+.kpi h3{font-size:.92rem;margin:0}
+.kpi-cuerpo{display:flex;align-items:center;gap:12px}
+.anillo-wrap{position:relative;width:88px;height:88px;flex:none}
+.anillo{width:88px;height:88px}
+.anillo .pista{fill:none;stroke:var(--grid);stroke-width:8}
+.anillo .arco{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dasharray 1s ease}
+.anillo.ok .arco{stroke:var(--menta)} .anillo.mal .arco{stroke:var(--coral)} .anillo.pend .pista{stroke:var(--ambar)}
+.centro{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:1.1rem;white-space:nowrap;font-variant-numeric:tabular-nums;text-align:center;line-height:1}
+.centro small{font-size:.7rem;color:var(--tinta-3);margin-left:1px}
+.txt-centro{font-size:1rem}
+.kpi dl{margin:0} .kpi dt{font-size:.75rem;color:var(--tinta-3);text-transform:uppercase;letter-spacing:.05em} .kpi dd{margin:0;font-weight:600}
+.kpi-linea{margin:0;color:var(--tinta-2);font-size:.84rem;flex:1}
+.insignia{display:inline-flex;align-self:flex-start;align-items:center;gap:.3rem;border-radius:999px;padding:.25rem .7rem;font-weight:700;font-size:.82rem}
+.insignia.ok{background:var(--menta-suave);color:var(--menta-texto)} .insignia.mal{background:var(--coral-suave);color:var(--coral-texto)} .insignia.pend{background:var(--ambar-suave);color:var(--ambar-texto)}
+.rejilla-graf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px} .rejilla-graf .ancho{grid-column:1/-1}
+.rejilla-2{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:2.4rem}
+.rejilla-2 h2{margin-top:0}
+.tarjeta{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);box-shadow:var(--sombra);padding:18px;margin:0;min-width:0}
+figcaption p{margin:0 0 .4rem;color:var(--tinta-3);font-size:.85rem}
+.grafico{width:100%;height:auto;display:block;margin-top:6px;overflow:visible}
+.eje-txt{fill:var(--tinta-3);font-size:12px;font-family:var(--fuente)}
+.valor-txt{fill:var(--tinta-2);font-size:12px;font-family:var(--fuente);font-weight:600}
+.ref-txt{fill:var(--tinta-2);font-size:11px;font-family:var(--fuente)}
+.grid{stroke:var(--grid);stroke-width:1} .base{stroke:var(--base);stroke-width:1} .ref{stroke:var(--tinta-2);stroke-width:1.5}
+.m-error{fill:var(--coral)} .m-tiempo{fill:var(--serie-1)}
+[data-tip]{cursor:default} [data-tip]:hover{opacity:.82}
+.leyendas{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--tinta-2)}
+.ley{display:inline-flex;align-items:center;gap:6px} .ley i{width:12px;height:12px;border-radius:3px;display:inline-block} .i-error{background:var(--coral)}
+details.datos{margin-top:.4rem;font-size:.84rem} details.datos table{border-collapse:collapse;margin-top:.4rem;width:100%}
+details.datos td,details.datos th{border-bottom:1px solid var(--borde);padding:.25rem .4rem;text-align:left}
+summary{cursor:pointer;color:var(--cielo-texto);font-weight:600}
+.pestanas [role=tablist]{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--borde);margin-bottom:14px}
+.pestanas [role=tab]{font:inherit;font-weight:600;background:none;border:0;border-bottom:3px solid transparent;padding:.6rem .9rem;color:var(--tinta-2);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.pestanas [role=tab][aria-selected=true]{color:var(--tinta);border-bottom-color:var(--cielo)}
+.pestanas [role=tab]:focus-visible,.boton:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--cielo);outline-offset:2px;border-radius:6px}
+.punto{width:10px;height:10px;border-radius:50%;display:inline-block}
+.lado-a-lado{display:grid;grid-template-columns:1fr;gap:0} .flecha{justify-self:center;color:var(--tinta-3);font-size:.85rem;padding:.35rem 0}
+.lado-a-lado>div{background:var(--superficie);border:1px solid var(--borde);border-radius:var(--radio);padding:14px;min-width:0}
+h4{font-size:.95rem}
+.tabla-scroll{overflow:auto;max-width:100%} .tabla-scroll.alto{max-height:440px;border:1px solid var(--borde);border-radius:12px;background:var(--superficie)}
+.tabla-mini,.tabla-errores{border-collapse:collapse;width:100%;font-size:.82rem}
+.tabla-mini th,.tabla-mini td,.tabla-errores th,.tabla-errores td{padding:.4rem .55rem;border-bottom:1px solid var(--borde);text-align:left;vertical-align:top;white-space:nowrap}
+.tabla-errores td:last-child{white-space:normal;min-width:260px}
+.tabla-mini thead th,.tabla-errores thead th{background:var(--superficie-2);position:sticky;top:0;font-weight:700;color:var(--tinta-2)}
+.fila-error th{color:var(--coral-texto)} .celda-error{background:var(--coral-suave);color:var(--coral-texto);white-space:normal!important}
+.chip-error{background:var(--coral-suave);color:var(--coral-texto);border-radius:999px;padding:.1rem .55rem;font-weight:600;font-size:.78rem}
+.filtros{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end;margin-bottom:10px}
+.filtros label{display:flex;flex-direction:column;font-size:.78rem;color:var(--tinta-3);gap:3px}
+.filtros select,.filtros input{font:inherit;font-size:.9rem;padding:.45rem .6rem;border:1px solid var(--borde);border-radius:10px;background:var(--superficie);color:var(--tinta);min-width:170px}
+.buscar{flex:1} .buscar input{width:100%}
+.cuenta{color:var(--tinta-3);font-size:.85rem;padding-bottom:.5rem}
+.cab-tarjeta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.boton{font:inherit;font-weight:600;font-size:.85rem;background:var(--cielo);color:#fff;border:0;border-radius:10px;padding:.5rem .9rem;cursor:pointer}
+.boton.hecho{background:var(--menta-texto)}
+.recursos{list-style:none;padding:0;margin:.3rem 0 .6rem;display:flex;gap:6px;flex-wrap:wrap}
+.recursos li{background:var(--lavanda-suave);color:var(--lavanda-texto);border-radius:8px;padding:.1rem .5rem;font-size:.8rem;font-weight:600}
+.codigo{background:var(--superficie-2);border:1px solid var(--borde);border-radius:12px;padding:12px;overflow:auto;max-height:460px;margin:0;line-height:1.45;white-space:pre}
+.jk{color:var(--cielo-texto)} .js{color:var(--menta-texto)} .jn{color:var(--lavanda-texto)} .jb{color:var(--naranja-texto)}
+.estado-int{font-weight:700;font-size:1.05rem;margin:.2rem 0}
+.integridad .ok,.estado-int.ok,.checks .ok{color:var(--menta-texto)} .integridad .mal,.estado-int.mal,.checks .mal{color:var(--coral-texto)}
+.integridad{list-style:none;padding:0;margin:0 0 1rem;font-size:.85rem} .integridad li{padding:.25rem 0;border-bottom:1px dashed var(--borde)}
+.c5{border-radius:var(--radio);padding:20px;border:1px solid var(--borde);background:var(--superficie);box-shadow:var(--sombra)}
+.c5.pend{background:var(--ambar-suave);border-color:transparent}
+.c5.pend p{color:var(--ambar-texto)}
+.c5-pasos{margin:1rem 0 0;padding-left:1.2rem;display:grid;gap:6px}
+.c5-pasos li span{display:block;color:var(--tinta-3);font-size:.84rem}
+.c5-pasos code{background:var(--superficie);padding:.15rem .45rem;border-radius:6px}
+.c5-cifras{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-bottom:12px}
+.c5-cifras div{display:flex;flex-direction:column} .grande{font-size:1.7rem;font-weight:800;font-variant-numeric:tabular-nums} .c5-cifras span:last-child{color:var(--tinta-3);font-size:.82rem}
+.checks,.motivos{padding-left:0;list-style:none;margin:.4rem 0 1rem} .checks li{padding:.15rem 0;font-weight:600}
+.motivos li{color:var(--tinta-2);font-size:.88rem;padding:.15rem 0}
+.alerta{padding:.7rem 1rem;border-radius:12px;background:var(--coral-suave)}
+.vacio{color:var(--tinta-3)}
+.pie{margin-top:3rem;padding-top:1.4rem;padding-bottom:2.5rem;border-top:1px solid var(--borde);color:var(--tinta-3);font-size:.84rem}
+.pie .leyenda-academica{display:inline-block;margin-bottom:.6rem}
+.tip{position:fixed;z-index:20;pointer-events:none;background:var(--tinta);color:var(--superficie);padding:.4rem .6rem;border-radius:8px;font-size:.8rem;max-width:280px;box-shadow:var(--sombra)}
+.solo-print{display:none}
+@media (max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.stepper{grid-template-columns:repeat(4,minmax(0,1fr))}.stepper li:nth-child(4n)::before{display:none}}
+@media (max-width:760px){.heroe,.rejilla-2,.rejilla-graf{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.stepper{grid-template-columns:1fr 1fr}.stepper li::before{display:none}.heroe{padding:22px}}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}.cabecera,main,.pie{padding:0 14px}.filtros select{min-width:0;width:100%}.filtros label{flex:1 1 140px}}
+@media (prefers-reduced-motion:reduce){.anillo .arco{transition:none}}
+@media print{
+  :root{color-scheme:light}
+  body{background:#fff;font-size:11.5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .no-print,#tip,.saltar,.pestanas [role=tablist],details.datos,details.yaml summary{display:none!important}
+  [role=tabpanel][hidden]{display:block!important} .solo-print{display:block}
+  .tarjeta,.kpi,.c5,.heroe-cifra{box-shadow:none} .tarjeta,.kpi,figure,.lado-a-lado>div{break-inside:avoid}
+  .tabla-scroll.alto,.codigo{max-height:none;overflow:visible} .codigo{white-space:pre-wrap}
+  section{break-inside:auto} h2{break-after:avoid}
+  .kpis{grid-template-columns:repeat(5,1fr)}
+  @page{margin:12mm}
+}
+</style>
+</head>
+<body>
+<a class="saltar" href="#principal">Saltar al contenido</a>
+<header class="cabecera">
+  <div class="marca"><svg class="logo" viewBox="0 0 48 48" role="img" aria-label="Logo de SALUDIA">
+<defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a78d6"/>
+<stop offset="1" stop-color="#1baf7a"/></linearGradient></defs>
+<rect width="48" height="48" rx="13" fill="url(#lg)"/>
+<path d="M16 10.5h12.5l7 7V36a2.5 2.5 0 0 1-2.5 2.5H16A2.5 2.5 0 0 1 13.5 36V13A2.5 2.5 0 0 1 16 10.5z"
+ fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M28.5 10.5v7h7" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M17.5 28h3.5l2.4-4.6 3.6 8.2 2.3-3.6h3.2" fill="none" stroke="#fff" stroke-width="2.4"
+ stroke-linecap="round" stroke-linejoin="round"/></svg><div><p class="nombre">SALUDIA</p><p class="desc">Conector HIS → RDA · HL7 FHIR R4</p></div></div>
+  <p class="leyenda-academica" role="note">Prototipo académico · datos sintéticos · validación estructural FHIR R4</p>
+</header>
+<main id="principal">
+<section class="heroe">
+  <div>
+    <h1>Tus atenciones, rumbo a la IHCE, sin cambiar de software</h1>
+    <p class="lead">SALUDIA lee los registros que tu IPS ya tiene, los ordena en un modelo común y los convierte en Resúmenes Digitales de Atención en HL7 FHIR. Este tablero muestra una corrida real del prototipo con datos sintéticos.</p>
+    <ul class="chips">
+      <li>Ejecución: <strong>22 de noviembre de 2026, 19:05</strong></li>
+      <li>FHIR <strong>4.0.1</strong> (R4)</li>
+      <li>CIE-10: <strong>300</strong> códigos · subconjunto transcrito (contrastar con SISPRO)</li>
+    </ul>
+  </div>
+  <div class="heroe-cifra">
+    <p class="cifra"><span class="contador" data-valor="270" data-dec="0">270</span><small> / 300</small></p>
+    <p>atenciones convertidas en RDA válidos</p>
+    <p class="h2 ok">Hipótesis H2 (C1, C2, C5): <strong>confirmada en entorno simulado</strong></p>
+  </div>
+</section>
+
+<section aria-labelledby="t-recorrido">
+  <h2 id="t-recorrido">Recorrido del dato</h2>
+  <div class="alcance"><span class="alcance-etq">Alcance del prototipo (pasos 1–7)</span>
+  <ol class="stepper"><li><span class="nodo">1</span><strong>Adaptadores de lectura</strong><span>300 registros · solo lectura</span></li><li><span class="nodo">2</span><strong>Archivos de mapeo (YAML)</strong><span>3 fuentes, sin código nuevo</span></li><li><span class="nodo sin-num">·</span><strong>Modelo común de atención</strong><span>300 atenciones</span></li><li><span class="nodo">3</span><strong>Normalizador</strong><span>fechas, sexo y documento unificados</span></li><li><span class="nodo">4</span><strong>Validador de datos (CIE-10)</strong><span>270 válidas · 30 reportadas</span></li><li><span class="nodo">5</span><strong>Motor FHIR · Bundle RDA</strong><span>270 documentos</span></li><li><span class="nodo">6</span><strong>Validador FHIR R4</strong><span>270 de 270 válidos</span></li><li><span class="nodo">7</span><strong>RDA JSON + reporte y métricas</strong><span>270 JSON · 30 hallazgos · C1–C5</span></li></ol></div>
+  <p class="nota">Fuera del alcance (fase posterior): cola cifrada de reintento, envío seguro a la IHCE, panel de cumplimiento y contenedor Docker.</p>
+</section>
+
+<section aria-labelledby="t-kpi">
+  <h2 id="t-kpi">Criterios de éxito</h2>
+  <p class="nota">Metas fijadas el 2026-11-22 en <code>config/metas.yaml</code>, antes de ejecutar las pruebas.
+  Huella SHA-256 <code>9e52892ecbfd4890…</code> ✓ sin cambios.</p>
+  <div class="kpis">
+<article class="kpi ok">
+  <header><span class="kpi-id">C1</span><h3>Extracción automática</h3></header>
+  <div class="kpi-cuerpo"><div class="anillo-wrap"><svg class="anillo ok" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" class="pista"/><circle cx="42" cy="42" r="34" class="arco" stroke-dasharray="213.63 213.63" transform="rotate(-90 42 42)"/></svg><div class="centro"><span><span class="contador" data-valor="100.0" data-dec="1">100,0</span><small>%</small></span></div></div>
+  <dl><dt>Meta</dt><dd>≥ 95 %</dd></dl></div>
+  <p class="kpi-linea">300 de 300 registros extraídos</p>
+  <span class="insignia ok">✓ Cumplió</span>
+</article>
+<article class="kpi ok">
+  <header><span class="kpi-id">C2</span><h3>RDA válidos</h3></header>
+  <div class="kpi-cuerpo"><div class="anillo-wrap"><svg class="anillo ok" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" class="pista"/><circle cx="42" cy="42" r="34" class="arco" stroke-dasharray="213.63 213.63" transform="rotate(-90 42 42)"/></svg><div class="centro"><span><span class="contador" data-valor="100.0" data-dec="1">100,0</span><small>%</small></span></div></div>
+  <dl><dt>Meta</dt><dd>≥ 90 %</dd></dl></div>
+  <p class="kpi-linea">270 de 270 RDA válidos</p>
+  <span class="insignia ok">✓ Cumplió</span>
+</article>
+<article class="kpi ok">
+  <header><span class="kpi-id">C3</span><h3>Detección de errores</h3></header>
+  <div class="kpi-cuerpo"><div class="anillo-wrap"><svg class="anillo ok" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" class="pista"/><circle cx="42" cy="42" r="34" class="arco" stroke-dasharray="213.63 213.63" transform="rotate(-90 42 42)"/></svg><div class="centro"><span><span class="contador" data-valor="100.0" data-dec="1">100,0</span><small>%</small></span></div></div>
+  <dl><dt>Meta</dt><dd>= 100 %</dd></dl></div>
+  <p class="kpi-linea">30 de 30 errores sembrados · 0 falsos positivos</p>
+  <span class="insignia ok">✓ Cumplió</span>
+</article>
+<article class="kpi ok">
+  <header><span class="kpi-id">C4</span><h3>Tiempo de procesamiento</h3></header>
+  <div class="kpi-cuerpo"><div class="anillo-wrap"><svg class="anillo ok" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" class="pista"/><circle cx="42" cy="42" r="34" class="arco" stroke-dasharray="211.83 213.63" transform="rotate(-90 42 42)"/></svg><div class="centro"><span><span class="contador" data-valor="8.4390" data-dec="2">8,44</span><small>ms</small></span></div></div>
+  <dl><dt>Meta</dt><dd>≤ 1 s por atención</dd></dl></div>
+  <p class="kpi-linea">mediana 7,31 ms · máx. 237,6 ms · anillo = margen frente a la meta</p>
+  <span class="insignia ok">✓ Cumplió</span>
+</article>
+<article class="kpi ok">
+  <header><span class="kpi-id">C5</span><h3>Integración de una fuente nueva</h3></header>
+  <div class="kpi-cuerpo"><div class="anillo-wrap"><svg class="anillo ok" viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" class="pista"/><circle cx="42" cy="42" r="34" class="arco" stroke-dasharray="213.63 213.63" transform="rotate(-90 42 42)"/></svg><div class="centro"><span><span class="txt-centro">Sí</span></span></div></div>
+  <dl><dt>Meta</dt><dd>sí, solo con un YAML</dd></dl></div>
+  <p class="kpi-linea">0,2 min · 1 intento(s)</p>
+  <span class="insignia ok">✓ Cumplió</span>
+</article></div>
+</section>
+
+<section aria-labelledby="t-graf" class="graficos">
+  <h2 id="t-graf">Lo que pasó en esta corrida</h2>
+  <div class="rejilla-graf">
+    <figure class="tarjeta">
+      <figcaption><h3>Atenciones por fuente</h3><p>RDA válido vs. registro con error</p></figcaption>
+      <div class="leyendas"><span class="ley"><i style="background:var(--serie-1)"></i>Fuente 1 · SQLite</span><span class="ley"><i style="background:var(--serie-2)"></i>Fuente 2 · CSV</span><span class="ley"><i style="background:var(--serie-3)"></i>Fuente 3 · Excel</span><span class="ley"><i class="i-error"></i>Con error (reportado)</span></div>
+      <svg viewBox="0 0 560 156" class="grafico" role="img" aria-labelledby="g1t"><title id="g1t">Atenciones por fuente: RDA válidos y con error</title><text x="116" y="25.0" class="eje-txt" text-anchor="end">Fuente 1 · SQLite</text><path d="M128.0,10.0h253.8a0,0 0 0 1 0,0v22.0a0,0 0 0 1 -0,0h-253.8z" style="fill:var(--serie-1)" data-tip="Fuente 1 · SQLite: 100 extraídas · 90 con RDA válido · 10 con error"/><path d="M383.8,10.0h22.2a4,4 0 0 1 4,4v14.0a4,4 0 0 1 -4,4h-22.2z" class="m-error" data-tip="Fuente 1 · SQLite: 100 extraídas · 90 con RDA válido · 10 con error"/><text x="419.99999999999994" y="25.0" class="valor-txt">90 válidas · 10 con error</text><text x="116" y="71.0" class="eje-txt" text-anchor="end">Fuente 2 · CSV</text><path d="M128.0,56.0h253.8a0,0 0 0 1 0,0v22.0a0,0 0 0 1 -0,0h-253.8z" style="fill:var(--serie-2)" data-tip="Fuente 2 · CSV: 100 extraídas · 90 con RDA válido · 10 con error"/><path d="M383.8,56.0h22.2a4,4 0 0 1 4,4v14.0a4,4 0 0 1 -4,4h-22.2z" class="m-error" data-tip="Fuente 2 · CSV: 100 extraídas · 90 con RDA válido · 10 con error"/><text x="419.99999999999994" y="71.0" class="valor-txt">90 válidas · 10 con error</text><text x="116" y="117.0" class="eje-txt" text-anchor="end">Fuente 3 · Excel</text><path d="M128.0,102.0h253.8a0,0 0 0 1 0,0v22.0a0,0 0 0 1 -0,0h-253.8z" style="fill:var(--serie-3)" data-tip="Fuente 3 · Excel: 100 extraídas · 90 con RDA válido · 10 con error"/><path d="M383.8,102.0h22.2a4,4 0 0 1 4,4v14.0a4,4 0 0 1 -4,4h-22.2z" class="m-error" data-tip="Fuente 3 · Excel: 100 extraídas · 90 con RDA válido · 10 con error"/><text x="419.99999999999994" y="117.0" class="valor-txt">90 válidas · 10 con error</text><line x1="128" x2="128" y1="4" y2="152" class="base"/></svg>
+      <details class="datos"><summary>Ver datos</summary><table><thead><tr><th>Fuente</th><th>Extraídas</th><th>RDA válidos</th><th>Con error</th></tr></thead><tbody><tr><td>Fuente 1 · SQLite</td><td class=num>100</td><td class=num>90</td><td class=num>10</td></tr><tr><td>Fuente 2 · CSV</td><td class=num>100</td><td class=num>90</td><td class=num>10</td></tr><tr><td>Fuente 3 · Excel</td><td class=num>100</td><td class=num>90</td><td class=num>10</td></tr></tbody></table></details>
+    </figure>
+    <figure class="tarjeta">
+      <figcaption><h3>Errores por tipo</h3><p>Cada registro con error se reporta; no se borra ni se corrige</p></figcaption>
+      <svg viewBox="0 0 560 128" class="grafico" role="img" aria-labelledby="g2t"><title id="g2t">Errores reportados por tipo</title><text x="158" y="22.0" class="eje-txt" text-anchor="end">Campo obligatorio vacío</text><path d="M170.0,8.0h326.0a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-326.0z" class="m-error" data-tip="Campo obligatorio vacío: 10 (Fuente 1 · SQLite: 3 · Fuente 2 · CSV: 3 · Fuente 3 · Excel: 4)"/><text x="508.0" y="22.0" class="valor-txt">10</text><text x="158" y="60.0" class="eje-txt" text-anchor="end">Fecha inválida</text><path d="M170.0,46.0h326.0a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-326.0z" class="m-error" data-tip="Fecha inválida: 10 (Fuente 1 · SQLite: 3 · Fuente 2 · CSV: 4 · Fuente 3 · Excel: 3)"/><text x="508.0" y="60.0" class="valor-txt">10</text><text x="158" y="98.0" class="eje-txt" text-anchor="end">CIE-10 inexistente</text><path d="M170.0,84.0h326.0a4,4 0 0 1 4,4v12.0a4,4 0 0 1 -4,4h-326.0z" class="m-error" data-tip="CIE-10 inexistente: 10 (Fuente 1 · SQLite: 4 · Fuente 2 · CSV: 3 · Fuente 3 · Excel: 3)"/><text x="508.0" y="98.0" class="valor-txt">10</text><line x1="170" x2="170" y1="2" y2="126" class="base"/></svg>
+      <details class="datos"><summary>Ver datos</summary><table><thead><tr><th>Tipo</th><th>Cantidad</th></tr></thead><tbody><tr><td>Campo obligatorio vacío</td><td class=num>10</td></tr><tr><td>Fecha inválida</td><td class=num>10</td></tr><tr><td>CIE-10 inexistente</td><td class=num>10</td></tr></tbody></table></details>
+    </figure>
+    <figure class="tarjeta ancho">
+      <figcaption><h3>Tiempo por atención</h3><p>Distribución de las 300 atenciones</p></figcaption>
+      <svg viewBox="0 0 1100 250" class="grafico" role="img" aria-labelledby="g3t"><title id="g3t">Distribución del tiempo por atención en milisegundos</title><line x1="44" x2="1088" y1="212.0" y2="212.0" class="grid"/><text x="36" y="216.0" class="eje-txt" text-anchor="end">0</text><line x1="44" x2="1088" y1="166.5" y2="166.5" class="grid"/><text x="36" y="170.5" class="eje-txt" text-anchor="end">50</text><line x1="44" x2="1088" y1="121.0" y2="121.0" class="grid"/><text x="36" y="125.0" class="eje-txt" text-anchor="end">100</text><line x1="44" x2="1088" y1="75.5" y2="75.5" class="grid"/><text x="36" y="79.5" class="eje-txt" text-anchor="end">150</text><line x1="44" x2="1088" y1="30.0" y2="30.0" class="grid"/><text x="36" y="34.0" class="eje-txt" text-anchor="end">200</text><path d="M84.2,212.0v-23.3a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v23.3z" class="m-tiempo" data-tip="0,0–2,0 ms: 30 atenciones"/><path d="" class="m-tiempo" data-tip="2,0–4,0 ms: 0 atenciones"/><path d="M293.0,212.0v-0.0a3.64,3.64 0 0 1 3.64,-3.64h16.7a3.64,3.64 0 0 1 3.64,3.64v0.0z" class="m-tiempo" data-tip="4,0–6,0 ms: 4 atenciones"/><path d="M397.4,212.0v-137.1a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v137.1z" class="m-tiempo" data-tip="6,0–8,0 ms: 155 atenciones"/><path d="M501.8,212.0v-51.5a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v51.5z" class="m-tiempo" data-tip="8,0–10,0 ms: 61 atenciones"/><path d="M606.2,212.0v-18.8a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v18.8z" class="m-tiempo" data-tip="10,0–12,0 ms: 25 atenciones"/><path d="M710.6,212.0v-10.6a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v10.6z" class="m-tiempo" data-tip="12,0–14,0 ms: 16 atenciones"/><path d="M815.0,212.0v-0.0a2.73,2.73 0 0 1 2.73,-2.73h18.5a2.73,2.73 0 0 1 2.73,2.73v0.0z" class="m-tiempo" data-tip="14,0–16,0 ms: 3 atenciones"/><rect x="815.0" y="210" width="24.0" height="2" class="m-tiempo"/><path d="M919.4,212.0v-0.0a0.91,0.91 0 0 1 0.91,-0.91h22.2a0.91,0.91 0 0 1 0.91,0.91v0.0z" class="m-tiempo" data-tip="16,0–18,0 ms: 1 atenciones"/><rect x="919.4" y="210" width="24.0" height="2" class="m-tiempo"/><path d="M1023.8,212.0v-0.5a4,4 0 0 1 4,-4h16.0a4,4 0 0 1 4,4v0.5z" class="m-tiempo" data-tip="≥ 18,0 ms: 5 atenciones"/><text x="44.0" y="228" class="eje-txt" text-anchor="middle">0</text><text x="252.8" y="228" class="eje-txt" text-anchor="middle">4</text><text x="461.6" y="228" class="eje-txt" text-anchor="middle">8</text><text x="670.4" y="228" class="eje-txt" text-anchor="middle">12</text><text x="879.2" y="228" class="eje-txt" text-anchor="middle">16</text><text x="1088.0" y="228" class="eje-txt" text-anchor="middle">20</text><text x="566.0" y="246" class="eje-txt" text-anchor="middle">milisegundos por atención</text><line x1="425.7" x2="425.7" y1="18" y2="212" class="ref"/><text x="419.7" y="28" class="ref-txt" text-anchor="end">mediana 7,31 ms</text><line x1="484.5" x2="484.5" y1="18" y2="212" class="ref"/><text x="490.5" y="28" class="ref-txt" text-anchor="start">promedio 8,44 ms</text><line x1="44" x2="1088" y1="212" y2="212" class="base"/></svg>
+      <p class="nota">Meta C4: promedio ≤ 1 s (= 1.000 ms). La atención más lenta tardó 237,6 ms. Las atenciones válidas tardaron en promedio 9,24 ms y las que tenían error 1,20 ms, porque estas no generan RDA (pasos 5 a 7). 5 atención(es) por encima de 18,0 ms se agrupan en la última barra.</p>
+      <details class="datos"><summary>Ver datos</summary><table><thead><tr><th>Rango</th><th>Atenciones</th></tr></thead><tbody><tr><td>0,0–2,0 ms</td><td class=num>30</td></tr><tr><td>2,0–4,0 ms</td><td class=num>0</td></tr><tr><td>4,0–6,0 ms</td><td class=num>4</td></tr><tr><td>6,0–8,0 ms</td><td class=num>155</td></tr><tr><td>8,0–10,0 ms</td><td class=num>61</td></tr><tr><td>10,0–12,0 ms</td><td class=num>25</td></tr><tr><td>12,0–14,0 ms</td><td class=num>16</td></tr><tr><td>14,0–16,0 ms</td><td class=num>3</td></tr><tr><td>16,0–18,0 ms</td><td class=num>1</td></tr><tr><td>≥ 18,0 ms</td><td class=num>5</td></tr></tbody></table></details>
+    </figure>
+  </div>
+</section>
+
+<section aria-labelledby="t-het">
+  <h2 id="t-het">Tres fuentes distintas, un solo modelo</h2>
+  <p class="nota">Primeras atenciones válidas de cada fuente y un registro con error (resaltado), tal como llegan y como quedan después del mapeo YAML y la normalización.</p>
+  <div class="pestanas"><div role="tablist" aria-label="Fuentes"><button role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" tabindex="0"><span class="punto" style="background:var(--serie-1)"></span>Fuente 1 · SQLite</button><button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1"><span class="punto" style="background:var(--serie-2)"></span>Fuente 2 · CSV</button><button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="punto" style="background:var(--serie-3)"></span>Fuente 3 · Excel</button></div><div role="tabpanel" id="panel-0" aria-labelledby="tab-0"><h3 class="solo-print">Fuente 1 · SQLite</h3>
+<div class="lado-a-lado">
+  <div><h4>Así llega <span class="sub">(fuente1_his_clinico.sqlite)</span></h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th><code>id_aten</code></th><th><code>tip_doc</code></th><th><code>num_doc</code></th><th><code>nom_pac</code></th><th><code>ape_pac</code></th><th><code>sexo</code></th><th><code>fec_nac</code></th><th><code>fec_consulta</code></th><th><code>cod_dx</code></th></tr></thead>
+    <tbody><tr><th scope=row>1</th><td>70001</td><td>CC</td><td>296012623</td><td>Vanessa María</td><td>Navarro Osorio</td><td>F</td><td>1986-11-05</td><td>2026-01-06 11:25</td><td>D509</td></tr><tr><th scope=row>2</th><td>70002</td><td>CC</td><td>1105356219</td><td>Magdalena</td><td>Ballesteros Giraldo</td><td>F</td><td>1990-02-20</td><td>2026-01-13 12:50</td><td>E782</td></tr><tr><th scope=row>3</th><td>70003</td><td>RC</td><td>1084407208</td><td>Alfonso</td><td>Barreto Moreno</td><td>M</td><td>2021-05-26</td><td>2026-01-16 08:10</td><td>B370</td></tr><tr class="fila-error"><th scope=row>12</th><td>70012</td><td>CC</td><td class="celda-error"><em>(vacío)</em></td><td>Javier</td><td>Angulo Yepes</td><td>M</td><td>1983-06-29</td><td>2026-02-16 11:05</td><td>A46X</td></tr></tbody></table></div>
+    <p class="nota">Columnas ignoradas por el mapeo: <code>usr_reg</code>, <code>est_reg</code></p></div>
+  <p class="flecha" aria-hidden="true">↓ mapeo YAML + normalización + validación ↓</p>
+  <div><h4>Así queda en el modelo común</h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th>id_atencion</th><th>tipo_documento</th><th>numero_documento</th><th>sexo</th><th>fecha_nacimiento</th><th>fecha_atencion</th><th>codigo_cie10</th></tr></thead>
+    <tbody><tr><th scope=row>1</th><td>70001</td><td>CC</td><td>296012623</td><td>F</td><td>1986-11-05</td><td>2026-01-06 11:25</td><td>D509</td></tr><tr><th scope=row>2</th><td>70002</td><td>CC</td><td>1105356219</td><td>F</td><td>1990-02-20</td><td>2026-01-13 12:50</td><td>E782</td></tr><tr><th scope=row>3</th><td>70003</td><td>RC</td><td>1084407208</td><td>M</td><td>2021-05-26</td><td>2026-01-16 08:10</td><td>B370</td></tr><tr class="fila-error"><th scope=row>12</th><td colspan="7" class="celda-error">Reportado, sin RDA: El campo obligatorio &#x27;numero_documento&#x27; está vacío</td></tr></tbody></table></div></div>
+</div>
+<details class="yaml"><summary>Ver el archivo de mapeo <code>fuente1_sqlite.yaml</code></summary>
+<pre class="codigo"># Fuente 1 · Base de datos de un software clínico tradicional (SQLite)
+version_esquema: 1
+
+fuente:
+  id: fuente1_sqlite
+  nombre: &quot;HIS clínico tradicional (base de datos relacional)&quot;
+  tipo: sqlite
+  ruta: datos/fuentes/fuente1_his_clinico.sqlite
+
+lectura:
+  tabla: tb_atencion          # la otra tabla (tb_usuarios) no se lee
+
+columnas:                     # campo del modelo común: columna en la fuente
+  id_atencion: id_aten
+  tipo_documento: tip_doc
+  numero_documento: num_doc
+  nombres: nom_pac
+  apellidos: ape_pac
+  sexo: sexo
+  fecha_nacimiento: fec_nac
+  fecha_atencion: fec_consulta
+  codigo_cie10: cod_dx
+  # usr_reg y est_reg no se mapean: se ignoran
+
+formatos_fecha:
+  fecha_nacimiento: &quot;%Y-%m-%d&quot;
+  fecha_atencion: &quot;%Y-%m-%d %H:%M&quot;
+
+equivalencias:
+  sexo: {M: M, F: F}
+  tipo_documento: {CC: CC, TI: TI, RC: RC, CE: CE, PA: PA}
+</pre></details></div><div role="tabpanel" id="panel-1" aria-labelledby="tab-1" hidden><h3 class="solo-print">Fuente 2 · CSV</h3>
+<div class="lado-a-lado">
+  <div><h4>Así llega <span class="sub">(fuente2_exportacion_antigua.csv)</span></h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th><code>IdAtencion</code></th><th><code>TipoID</code></th><th><code>NumeroID</code></th><th><code>Nombres</code></th><th><code>Apellidos</code></th><th><code>Sexo</code></th><th><code>FechaNacimiento</code></th><th><code>FechaAtencion</code></th><th><code>CodDiagnostico</code></th></tr></thead>
+    <tbody><tr><th scope=row>2</th><td>AT2026-1001</td><td>2</td><td>1146092666</td><td>Andrea Sofía</td><td>Contreras Molina</td><td>2</td><td>19/02/2014</td><td>05/01/2026</td><td>R103</td></tr><tr><th scope=row>3</th><td>AT2026-1002</td><td>1</td><td>749382676</td><td>Carmen Beatriz</td><td>Salamanca Rojas</td><td>2</td><td>21/01/1971</td><td>05/01/2026</td><td>M754</td></tr><tr><th scope=row>4</th><td>AT2026-1003</td><td>1</td><td>889690547</td><td>Ana Carmen</td><td>Salazar Yepes</td><td>2</td><td>28/08/1986</td><td>10/01/2026</td><td>B001</td></tr><tr class="fila-error"><th scope=row>13</th><td>AT2026-1012</td><td>1</td><td>459330034</td><td>Alexander Marco</td><td>Fernández Perdomo</td><td>1</td><td>15/08/1984</td><td class="celda-error">31/02/2026</td><td>F419</td></tr></tbody></table></div>
+    <p class="nota">Columnas ignoradas por el mapeo: <code>CodPrestador</code>, <code>Usuario</code></p></div>
+  <p class="flecha" aria-hidden="true">↓ mapeo YAML + normalización + validación ↓</p>
+  <div><h4>Así queda en el modelo común</h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th>id_atencion</th><th>tipo_documento</th><th>numero_documento</th><th>sexo</th><th>fecha_nacimiento</th><th>fecha_atencion</th><th>codigo_cie10</th></tr></thead>
+    <tbody><tr><th scope=row>2</th><td>AT2026-1001</td><td>TI</td><td>1146092666</td><td>F</td><td>2014-02-19</td><td>2026-01-05</td><td>R103</td></tr><tr><th scope=row>3</th><td>AT2026-1002</td><td>CC</td><td>749382676</td><td>F</td><td>1971-01-21</td><td>2026-01-05</td><td>M754</td></tr><tr><th scope=row>4</th><td>AT2026-1003</td><td>CC</td><td>889690547</td><td>F</td><td>1986-08-28</td><td>2026-01-10</td><td>B001</td></tr><tr class="fila-error"><th scope=row>13</th><td colspan="7" class="celda-error">Reportado, sin RDA: &#x27;31/02/2026&#x27; no existe en el calendario (formato esperado DD/MM/AAAA)</td></tr></tbody></table></div></div>
+</div>
+<details class="yaml"><summary>Ver el archivo de mapeo <code>fuente2_csv.yaml</code></summary>
+<pre class="codigo"># Fuente 2 · Exportación CSV de un software antiguo
+version_esquema: 1
+
+fuente:
+  id: fuente2_csv
+  nombre: &quot;Exportación CSV de software antiguo&quot;
+  tipo: csv
+  ruta: datos/fuentes/fuente2_exportacion_antigua.csv
+
+lectura:
+  separador: &quot;,&quot;
+  codificacion: cp1252        # Windows-1252, típica de software de escritorio
+  fila_encabezado: 1
+
+columnas:
+  id_atencion: IdAtencion
+  tipo_documento: TipoID
+  numero_documento: NumeroID
+  nombres: Nombres
+  apellidos: Apellidos
+  sexo: Sexo
+  fecha_nacimiento: FechaNacimiento
+  fecha_atencion: FechaAtencion
+  codigo_cie10: CodDiagnostico
+  # CodPrestador y Usuario se ignoran
+
+formatos_fecha:
+  fecha_nacimiento: &quot;%d/%m/%Y&quot;
+  fecha_atencion: &quot;%d/%m/%Y&quot;
+
+equivalencias:
+  sexo:
+    &quot;1&quot;: M
+    &quot;2&quot;: F
+  tipo_documento:
+    &quot;1&quot;: CC
+    &quot;2&quot;: TI
+    &quot;3&quot;: RC
+    &quot;4&quot;: CE
+    &quot;5&quot;: PA
+</pre></details></div><div role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden><h3 class="solo-print">Fuente 3 · Excel</h3>
+<div class="lado-a-lado">
+  <div><h4>Así llega <span class="sub">(fuente3_registro_manual.xlsx)</span></h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th><code>N° atención</code></th><th><code>Tipo de documento</code></th><th><code>No. documento</code></th><th><code>Nombres</code></th><th><code>Apellidos</code></th><th><code>Género</code></th><th><code>F. nacimiento</code></th><th><code>Fecha consulta</code></th><th><code>Dx principal (CIE-10)</code></th></tr></thead>
+    <tbody><tr><th scope=row>5</th><td>1</td><td>Registro civil</td><td>1123820516</td><td>María Cecilia</td><td>Herrera Mosquera</td><td>Femenino</td><td>15-04-2019</td><td>15-01-2026</td><td>J459</td></tr><tr><th scope=row>8</th><td>4</td><td>Cédula de ciudadanía</td><td>780339943</td><td>Carlos</td><td>Carrillo Mendoza</td><td>Masculino</td><td>28-06-1942</td><td>17-01-2026</td><td>E782</td></tr><tr><th scope=row>9</th><td>5</td><td>Cédula de ciudadanía</td><td>173557743</td><td>Milena</td><td>Castillo Rueda</td><td>Femenino</td><td>28-05-1961</td><td>20-01-2026</td><td>A600</td></tr><tr class="fila-error"><th scope=row>6</th><td class="celda-error"><em>(vacío)</em></td><td>Cédula de ciudadanía</td><td>543614666</td><td>Fredy José</td><td>Gómez Calderón</td><td>Masculino</td><td>01-08-1972</td><td>15-01-2026</td><td>F419</td></tr></tbody></table></div>
+    <p class="nota">Columnas ignoradas por el mapeo: <code>Observaciones</code></p></div>
+  <p class="flecha" aria-hidden="true">↓ mapeo YAML + normalización + validación ↓</p>
+  <div><h4>Así queda en el modelo común</h4>
+    <div class="tabla-scroll"><table class="tabla-mini"><thead><tr><th>Fila</th><th>id_atencion</th><th>tipo_documento</th><th>numero_documento</th><th>sexo</th><th>fecha_nacimiento</th><th>fecha_atencion</th><th>codigo_cie10</th></tr></thead>
+    <tbody><tr><th scope=row>5</th><td>1</td><td>RC</td><td>1123820516</td><td>F</td><td>2019-04-15</td><td>2026-01-15</td><td>J459</td></tr><tr><th scope=row>8</th><td>4</td><td>CC</td><td>780339943</td><td>M</td><td>1942-06-28</td><td>2026-01-17</td><td>E782</td></tr><tr><th scope=row>9</th><td>5</td><td>CC</td><td>173557743</td><td>F</td><td>1961-05-28</td><td>2026-01-20</td><td>A600</td></tr><tr class="fila-error"><th scope=row>6</th><td colspan="7" class="celda-error">Reportado, sin RDA: El campo obligatorio &#x27;id_atencion&#x27; está vacío</td></tr></tbody></table></div></div>
+</div>
+<details class="yaml"><summary>Ver el archivo de mapeo <code>fuente3_excel.yaml</code></summary>
+<pre class="codigo"># Fuente 3 · Hoja de Excel diligenciada a mano
+version_esquema: 1
+
+fuente:
+  id: fuente3_excel
+  nombre: &quot;Hoja de Excel diligenciada a mano&quot;
+  tipo: excel
+  ruta: datos/fuentes/fuente3_registro_manual.xlsx
+
+lectura:
+  hoja: Atenciones
+  fila_encabezado: 4          # filas 1 a 3: título, nota y una fila en blanco
+
+columnas:
+  id_atencion: &quot;N° atención&quot;
+  tipo_documento: &quot;Tipo de documento&quot;
+  numero_documento: &quot;No. documento&quot;
+  nombres: Nombres
+  apellidos: Apellidos
+  sexo: &quot;Género&quot;
+  fecha_nacimiento: &quot;F. nacimiento&quot;
+  fecha_atencion: &quot;Fecha consulta&quot;
+  codigo_cie10: &quot;Dx principal (CIE-10)&quot;
+  # Observaciones se ignora
+
+formatos_fecha:
+  fecha_nacimiento: &quot;%d-%m-%Y&quot;
+  fecha_atencion: &quot;%d-%m-%Y&quot;
+
+equivalencias:
+  sexo:
+    Masculino: M
+    Femenino: F
+  tipo_documento:
+    &quot;Cédula de ciudadanía&quot;: CC
+    &quot;Tarjeta de identidad&quot;: TI
+    &quot;Registro civil&quot;: RC
+    &quot;Cédula de extranjería&quot;: CE
+    &quot;Pasaporte&quot;: PA
+</pre></details></div></div>
+</section>
+
+<section aria-labelledby="t-err">
+  <h2 id="t-err">Reporte de errores</h2>
+  
+<div class="filtros no-print">
+  <label>Fuente <select id="f-fuente"><option value="">Todas</option><option value="fuente1_sqlite">Fuente 1 · SQLite</option><option value="fuente2_csv">Fuente 2 · CSV</option><option value="fuente3_excel">Fuente 3 · Excel</option></select></label>
+  <label>Tipo de error <select id="f-tipo"><option value="">Todos</option><option value="campo_obligatorio_vacio">Campo obligatorio vacío</option><option value="cie10_inexistente">CIE-10 inexistente</option><option value="fecha_invalida">Fecha inválida</option></select></label>
+  <label class="buscar">Buscar <input id="f-texto" type="search" placeholder="id, campo, valor o mensaje"></label>
+  <span id="f-cuenta" class="cuenta" aria-live="polite">30 de 30</span>
+</div>
+<div class="tabla-scroll alto"><table class="tabla-errores"><caption class="sr">Reporte de errores</caption>
+<thead><tr><th>Fuente</th><th>Fila</th><th>Atención</th><th>Campo</th><th>Tipo</th><th>Valor encontrado</th><th>Mensaje</th></tr></thead>
+<tbody id="errores-cuerpo"><tr data-fuente="fuente1_sqlite" data-tipo="campo_obligatorio_vacio"><td>Fuente 1 · SQLite</td><td class="num">12</td><td><code>70012</code></td><td><code>numero_documento</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;numero_documento&#x27; está vacío</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="fecha_invalida"><td>Fuente 1 · SQLite</td><td class="num">15</td><td><code>70015</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>04/03/2026 08:30</code></td><td>&#x27;04/03/2026 08:30&#x27; no corresponde al formato AAAA-MM-DD HH:MM</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="fecha_invalida"><td>Fuente 1 · SQLite</td><td class="num">47</td><td><code>70047</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>2026-02-30 09:15</code></td><td>&#x27;2026-02-30 09:15&#x27; no existe en el calendario (formato esperado AAAA-MM-DD HH:MM)</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="campo_obligatorio_vacio"><td>Fuente 1 · SQLite</td><td class="num">56</td><td><code>70056</code></td><td><code>sexo</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;sexo&#x27; está vacío</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="cie10_inexistente"><td>Fuente 1 · SQLite</td><td class="num">61</td><td><code>70061</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>J0O9</code></td><td>&#x27;J0O9&#x27; no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="cie10_inexistente"><td>Fuente 1 · SQLite</td><td class="num">63</td><td><code>70063</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>E999</code></td><td>El código &#x27;E999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="fecha_invalida"><td>Fuente 1 · SQLite</td><td class="num">67</td><td><code>70067</code></td><td><code>fecha_nacimiento</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>1985-02-29</code></td><td>&#x27;1985-02-29&#x27; no existe en el calendario (formato esperado AAAA-MM-DD)</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="cie10_inexistente"><td>Fuente 1 · SQLite</td><td class="num">72</td><td><code>70072</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>H999</code></td><td>El código &#x27;H999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="cie10_inexistente"><td>Fuente 1 · SQLite</td><td class="num">79</td><td><code>70079</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>K999</code></td><td>El código &#x27;K999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente1_sqlite" data-tipo="campo_obligatorio_vacio"><td>Fuente 1 · SQLite</td><td class="num">89</td><td><code>70089</code></td><td><code>tipo_documento</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;tipo_documento&#x27; está vacío</td></tr><tr data-fuente="fuente2_csv" data-tipo="fecha_invalida"><td>Fuente 2 · CSV</td><td class="num">13</td><td><code>AT2026-1012</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>31/02/2026</code></td><td>&#x27;31/02/2026&#x27; no existe en el calendario (formato esperado DD/MM/AAAA)</td></tr><tr data-fuente="fuente2_csv" data-tipo="cie10_inexistente"><td>Fuente 2 · CSV</td><td class="num">17</td><td><code>AT2026-1016</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>P999</code></td><td>El código &#x27;P999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente2_csv" data-tipo="campo_obligatorio_vacio"><td>Fuente 2 · CSV</td><td class="num">31</td><td><code>AT2026-1030</code></td><td><code>fecha_nacimiento</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;fecha_nacimiento&#x27; está vacío</td></tr><tr data-fuente="fuente2_csv" data-tipo="cie10_inexistente"><td>Fuente 2 · CSV</td><td class="num">39</td><td><code>AT2026-1038</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>I1OX</code></td><td>&#x27;I1OX&#x27; no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo</td></tr><tr data-fuente="fuente2_csv" data-tipo="fecha_invalida"><td>Fuente 2 · CSV</td><td class="num">40</td><td><code>AT2026-1039</code></td><td><code>fecha_nacimiento</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>12/14/1990</code></td><td>&#x27;12/14/1990&#x27; no corresponde al formato DD/MM/AAAA</td></tr><tr data-fuente="fuente2_csv" data-tipo="campo_obligatorio_vacio"><td>Fuente 2 · CSV</td><td class="num">57</td><td><code>AT2026-1056</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code>   </code></td><td>El campo obligatorio &#x27;fecha_atencion&#x27; está vacío</td></tr><tr data-fuente="fuente2_csv" data-tipo="cie10_inexistente"><td>Fuente 2 · CSV</td><td class="num">58</td><td><code>AT2026-1057</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>D999</code></td><td>El código &#x27;D999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente2_csv" data-tipo="fecha_invalida"><td>Fuente 2 · CSV</td><td class="num">83</td><td><code>AT2026-1082</code></td><td><code>fecha_nacimiento</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>15-07-1978</code></td><td>&#x27;15-07-1978&#x27; no corresponde al formato DD/MM/AAAA</td></tr><tr data-fuente="fuente2_csv" data-tipo="campo_obligatorio_vacio"><td>Fuente 2 · CSV</td><td class="num">96</td><td><code>AT2026-1095</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;codigo_cie10&#x27; está vacío</td></tr><tr data-fuente="fuente2_csv" data-tipo="fecha_invalida"><td>Fuente 2 · CSV</td><td class="num">98</td><td><code>AT2026-1097</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>2026-03-15</code></td><td>&#x27;2026-03-15&#x27; no corresponde al formato DD/MM/AAAA</td></tr><tr data-fuente="fuente3_excel" data-tipo="campo_obligatorio_vacio"><td>Fuente 3 · Excel</td><td class="num">6</td><td><code>—</code></td><td><code>id_atencion</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;id_atencion&#x27; está vacío</td></tr><tr data-fuente="fuente3_excel" data-tipo="fecha_invalida"><td>Fuente 3 · Excel</td><td class="num">7</td><td><code>3</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>15/03/2026</code></td><td>&#x27;15/03/2026&#x27; no corresponde al formato DD-MM-AAAA</td></tr><tr data-fuente="fuente3_excel" data-tipo="fecha_invalida"><td>Fuente 3 · Excel</td><td class="num">31</td><td><code>27</code></td><td><code>fecha_nacimiento</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>29-02-2025</code></td><td>&#x27;29-02-2025&#x27; no existe en el calendario (formato esperado DD-MM-AAAA)</td></tr><tr data-fuente="fuente3_excel" data-tipo="cie10_inexistente"><td>Fuente 3 · Excel</td><td class="num">54</td><td><code>50</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>Ñ100</code></td><td>&#x27;Ñ100&#x27; no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo</td></tr><tr data-fuente="fuente3_excel" data-tipo="cie10_inexistente"><td>Fuente 3 · Excel</td><td class="num">55</td><td><code>51</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>J4S9</code></td><td>&#x27;J4S9&#x27; no tiene el formato CIE-10 de SISPRO (letra + 3 caracteres, sin punto) y no está en el catálogo</td></tr><tr data-fuente="fuente3_excel" data-tipo="campo_obligatorio_vacio"><td>Fuente 3 · Excel</td><td class="num">59</td><td><code>55</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;codigo_cie10&#x27; está vacío</td></tr><tr data-fuente="fuente3_excel" data-tipo="fecha_invalida"><td>Fuente 3 · Excel</td><td class="num">74</td><td><code>70</code></td><td><code>fecha_atencion</code></td><td><span class="chip-error">Fecha inválida</span></td><td><code>31-04-2026</code></td><td>&#x27;31-04-2026&#x27; no existe en el calendario (formato esperado DD-MM-AAAA)</td></tr><tr data-fuente="fuente3_excel" data-tipo="campo_obligatorio_vacio"><td>Fuente 3 · Excel</td><td class="num">75</td><td><code>71</code></td><td><code>numero_documento</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;numero_documento&#x27; está vacío</td></tr><tr data-fuente="fuente3_excel" data-tipo="cie10_inexistente"><td>Fuente 3 · Excel</td><td class="num">78</td><td><code>74</code></td><td><code>codigo_cie10</code></td><td><span class="chip-error">CIE-10 inexistente</span></td><td><code>C999</code></td><td>El código &#x27;C999&#x27; no existe en el catálogo CIE-10</td></tr><tr data-fuente="fuente3_excel" data-tipo="campo_obligatorio_vacio"><td>Fuente 3 · Excel</td><td class="num">88</td><td><code>84</code></td><td><code>sexo</code></td><td><span class="chip-error">Campo obligatorio vacío</span></td><td><code><em>(vacío)</em></code></td><td>El campo obligatorio &#x27;sexo&#x27; está vacío</td></tr></tbody></table></div>
+</section>
+
+<section class="rejilla-2">
+  <div class="tarjeta">
+    <div class="cab-tarjeta"><h2>RDA de ejemplo <span class="sub">Bundle · document · 4 recursos</span></h2>
+    <button class="boton no-print" id="copiar" type="button">Copiar JSON</button></div>
+    <ul class="recursos"><li>Composition</li><li>Patient</li><li>Encounter</li><li>Condition</li></ul>
+    <pre class="codigo json" id="rda-json">{
+  <span class="jk">&quot;resourceType&quot;</span>: <span class="js">&quot;Bundle&quot;</span>,
+  <span class="jk">&quot;id&quot;</span>: <span class="js">&quot;e160b388-1985-5e7c-9d66-d07d5a3e0946&quot;</span>,
+  <span class="jk">&quot;meta&quot;</span>: {
+    <span class="jk">&quot;tag&quot;</span>: [
+      {
+        <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:etiquetas&quot;</span>,
+        <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;sintetico&quot;</span>,
+        <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Datos sintéticos · prototipo académico&quot;</span>
+      }
+    ]
+  },
+  <span class="jk">&quot;identifier&quot;</span>: {
+    <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:rda&quot;</span>,
+    <span class="jk">&quot;value&quot;</span>: <span class="js">&quot;fuente1_sqlite-70001&quot;</span>
+  },
+  <span class="jk">&quot;type&quot;</span>: <span class="js">&quot;document&quot;</span>,
+  <span class="jk">&quot;timestamp&quot;</span>: <span class="js">&quot;2026-11-22T19:05:38-05:00&quot;</span>,
+  <span class="jk">&quot;entry&quot;</span>: [
+    {
+      <span class="jk">&quot;fullUrl&quot;</span>: <span class="js">&quot;urn:uuid:f7a90656-cc54-5357-8138-f761c863b624&quot;</span>,
+      <span class="jk">&quot;resource&quot;</span>: {
+        <span class="jk">&quot;resourceType&quot;</span>: <span class="js">&quot;Composition&quot;</span>,
+        <span class="jk">&quot;id&quot;</span>: <span class="js">&quot;f7a90656-cc54-5357-8138-f761c863b624&quot;</span>,
+        <span class="jk">&quot;status&quot;</span>: <span class="js">&quot;final&quot;</span>,
+        <span class="jk">&quot;type&quot;</span>: {
+          <span class="jk">&quot;coding&quot;</span>: [
+            {
+              <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;http://loinc.org&quot;</span>,
+              <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;34133-9&quot;</span>,
+              <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Summary of episode note&quot;</span>
+            }
+          ]
+        },
+        <span class="jk">&quot;subject&quot;</span>: {
+          <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8&quot;</span>
+        },
+        <span class="jk">&quot;encounter&quot;</span>: {
+          <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2&quot;</span>
+        },
+        <span class="jk">&quot;date&quot;</span>: <span class="js">&quot;2026-01-06T11:25:00-05:00&quot;</span>,
+        <span class="jk">&quot;author&quot;</span>: [
+          {
+            <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;IPS Sintética de Soledad (ficticia)&quot;</span>
+          }
+        ],
+        <span class="jk">&quot;title&quot;</span>: <span class="js">&quot;Resumen Digital de Atención (RDA) · prototipo académico, datos sintéticos&quot;</span>,
+        <span class="jk">&quot;section&quot;</span>: [
+          {
+            <span class="jk">&quot;title&quot;</span>: <span class="js">&quot;Diagnósticos de la atención&quot;</span>,
+            <span class="jk">&quot;code&quot;</span>: {
+              <span class="jk">&quot;coding&quot;</span>: [
+                {
+                  <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;http://loinc.org&quot;</span>,
+                  <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;29548-5&quot;</span>,
+                  <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Diagnosis Narrative&quot;</span>
+                }
+              ]
+            },
+            <span class="jk">&quot;text&quot;</span>: {
+              <span class="jk">&quot;status&quot;</span>: <span class="js">&quot;generated&quot;</span>,
+              <span class="jk">&quot;div&quot;</span>: <span class="js">&quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;Diagnóstico principal: D509 Anemia por deficiencia de hierro sin otra especificación&lt;/div&gt;&quot;</span>
+            },
+            <span class="jk">&quot;entry&quot;</span>: [
+              {
+                <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2&quot;</span>
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      <span class="jk">&quot;fullUrl&quot;</span>: <span class="js">&quot;urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8&quot;</span>,
+      <span class="jk">&quot;resource&quot;</span>: {
+        <span class="jk">&quot;resourceType&quot;</span>: <span class="js">&quot;Patient&quot;</span>,
+        <span class="jk">&quot;id&quot;</span>: <span class="js">&quot;276abeb0-6ff7-5844-9aea-1de0a54335c8&quot;</span>,
+        <span class="jk">&quot;identifier&quot;</span>: [
+          {
+            <span class="jk">&quot;type&quot;</span>: {
+              <span class="jk">&quot;coding&quot;</span>: [
+                {
+                  <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:tipo-documento&quot;</span>,
+                  <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;CC&quot;</span>,
+                  <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Cédula de ciudadanía&quot;</span>
+                }
+              ]
+            },
+            <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:documento:cc&quot;</span>,
+            <span class="jk">&quot;value&quot;</span>: <span class="js">&quot;296012623&quot;</span>
+          }
+        ],
+        <span class="jk">&quot;gender&quot;</span>: <span class="js">&quot;female&quot;</span>,
+        <span class="jk">&quot;birthDate&quot;</span>: <span class="js">&quot;1986-11-05&quot;</span>,
+        <span class="jk">&quot;name&quot;</span>: [
+          {
+            <span class="jk">&quot;family&quot;</span>: <span class="js">&quot;Navarro Osorio&quot;</span>,
+            <span class="jk">&quot;given&quot;</span>: [
+              <span class="js">&quot;Vanessa&quot;</span>,
+              <span class="js">&quot;María&quot;</span>
+            ]
+          }
+        ]
+      }
+    },
+    {
+      <span class="jk">&quot;fullUrl&quot;</span>: <span class="js">&quot;urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2&quot;</span>,
+      <span class="jk">&quot;resource&quot;</span>: {
+        <span class="jk">&quot;resourceType&quot;</span>: <span class="js">&quot;Encounter&quot;</span>,
+        <span class="jk">&quot;id&quot;</span>: <span class="js">&quot;020bce11-8b77-5635-ab95-6d25e24813e2&quot;</span>,
+        <span class="jk">&quot;identifier&quot;</span>: [
+          {
+            <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:atencion:fuente1_sqlite&quot;</span>,
+            <span class="jk">&quot;value&quot;</span>: <span class="js">&quot;70001&quot;</span>
+          }
+        ],
+        <span class="jk">&quot;status&quot;</span>: <span class="js">&quot;finished&quot;</span>,
+        <span class="jk">&quot;class&quot;</span>: {
+          <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;http://terminology.hl7.org/CodeSystem/v3-ActCode&quot;</span>,
+          <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;AMB&quot;</span>,
+          <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;ambulatory&quot;</span>
+        },
+        <span class="jk">&quot;subject&quot;</span>: {
+          <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8&quot;</span>
+        },
+        <span class="jk">&quot;period&quot;</span>: {
+          <span class="jk">&quot;start&quot;</span>: <span class="js">&quot;2026-01-06T11:25:00-05:00&quot;</span>
+        },
+        <span class="jk">&quot;diagnosis&quot;</span>: [
+          {
+            <span class="jk">&quot;condition&quot;</span>: {
+              <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2&quot;</span>
+            },
+            <span class="jk">&quot;rank&quot;</span>: <span class="jn">1</span>
+          }
+        ],
+        <span class="jk">&quot;serviceProvider&quot;</span>: {
+          <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;IPS Sintética de Soledad (ficticia)&quot;</span>
+        }
+      }
+    },
+    {
+      <span class="jk">&quot;fullUrl&quot;</span>: <span class="js">&quot;urn:uuid:328904b5-d3cf-5638-8706-caa9ddb5f4f2&quot;</span>,
+      <span class="jk">&quot;resource&quot;</span>: {
+        <span class="jk">&quot;resourceType&quot;</span>: <span class="js">&quot;Condition&quot;</span>,
+        <span class="jk">&quot;id&quot;</span>: <span class="js">&quot;328904b5-d3cf-5638-8706-caa9ddb5f4f2&quot;</span>,
+        <span class="jk">&quot;category&quot;</span>: [
+          {
+            <span class="jk">&quot;coding&quot;</span>: [
+              {
+                <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;http://terminology.hl7.org/CodeSystem/condition-category&quot;</span>,
+                <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;encounter-diagnosis&quot;</span>,
+                <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Encounter Diagnosis&quot;</span>
+              }
+            ]
+          }
+        ],
+        <span class="jk">&quot;code&quot;</span>: {
+          <span class="jk">&quot;coding&quot;</span>: [
+            {
+              <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;http://hl7.org/fhir/sid/icd-10&quot;</span>,
+              <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;D50.9&quot;</span>,
+              <span class="jk">&quot;display&quot;</span>: <span class="js">&quot;Anemia por deficiencia de hierro sin otra especificación&quot;</span>
+            },
+            {
+              <span class="jk">&quot;system&quot;</span>: <span class="js">&quot;urn:saludia:cie10-sispro&quot;</span>,
+              <span class="jk">&quot;code&quot;</span>: <span class="js">&quot;D509&quot;</span>
+            }
+          ],
+          <span class="jk">&quot;text&quot;</span>: <span class="js">&quot;D509 Anemia por deficiencia de hierro sin otra especificación&quot;</span>
+        },
+        <span class="jk">&quot;subject&quot;</span>: {
+          <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:276abeb0-6ff7-5844-9aea-1de0a54335c8&quot;</span>
+        },
+        <span class="jk">&quot;encounter&quot;</span>: {
+          <span class="jk">&quot;reference&quot;</span>: <span class="js">&quot;urn:uuid:020bce11-8b77-5635-ab95-6d25e24813e2&quot;</span>
+        }
+      }
+    }
+  ]
+}</pre>
+  </div>
+  <div class="tarjeta">
+    <h2>Integridad y alcance</h2>
+    <p class="estado-int ok">✓ Fuentes intactas</p>
+    <p class="nota">Huella SHA-256 de cada archivo fuente antes → después de la corrida. Las fuentes se abren en solo lectura.</p>
+    <ul class="integridad"><li><span class="ok">✓</span> Fuente 1 · SQLite <code title="a0f386cf33477538c65456d2d53d37a01f5afe385cf740f4cf185d27fd9263e4">a0f386cf3347…</code> → <code title="a0f386cf33477538c65456d2d53d37a01f5afe385cf740f4cf185d27fd9263e4">a0f386cf3347…</code></li><li><span class="ok">✓</span> Fuente 2 · CSV <code title="6bbfb5db6100667eb47d52eb1c17b28d9c4fd0322dfd286db54ef619a7772980">6bbfb5db6100…</code> → <code title="6bbfb5db6100667eb47d52eb1c17b28d9c4fd0322dfd286db54ef619a7772980">6bbfb5db6100…</code></li><li><span class="ok">✓</span> Fuente 3 · Excel <code title="3f08b215d82f6d00402d9f3dceb0d1d1f87b51d92a9db488bfeddb820d426c2e">3f08b215d82f…</code> → <code title="3f08b215d82f6d00402d9f3dceb0d1d1f87b51d92a9db488bfeddb820d426c2e">3f08b215d82f…</code></li></ul>
+    <h3>Validación estructural</h3>
+    <p class="nota">Validación estructural R4 base + reglas de documento (no es conformidad con la guía del Ministerio). Se valida con <code>fhir.resources</code> (FHIR 4.0.1) y con reglas propias de documento (bdl-7, bdl-9, bdl-10, bdl-11, conjuntos de valores, zona horaria y referencias internas).</p>
+    <h3>Entorno</h3>
+    <p class="nota">Python 3.14.4 · fhir.resources 6.4.0 · Windows-11-10.0.26200-SP0<br>
+    Corrida completa: 3,01 s</p>
+  </div>
+</section>
+
+<section aria-labelledby="t-c5">
+  <h2 id="t-c5">C5 · Fuente nueva conectada solo con YAML</h2>
+  
+<div class="c5 ok">
+  <div class="c5-cifras">
+    <div><span class="grande">Sí</span><span>veredicto</span></div>
+    <div><span class="grande">0,2</span><span>minutos (reloj del sistema)</span></div>
+    <div><span class="grande">1</span><span>intentos</span></div>
+    <div><span class="grande">25/25</span><span>filas iguales al esperado</span></div>
+    <span class="insignia ok">✓ Cumplió</span>
+  </div>
+  <ul class="checks"><li class="ok">✓ Código y configuración sin cambios</li><li class="ok">✓ Fuente conectada</li><li class="ok">✓ Se procesaron todas las filas</li><li class="ok">✓ RDA estructuralmente válidos</li><li class="ok">✓ Lo normalizado coincide con el resultado esperado</li></ul>
+  
+  <h4>YAML usado: <code>fuente4_eps.yaml</code> <span class="sub">SHA-256 0844b942dc1c7965…</span></h4>
+  <pre class="codigo"># Fuente 4 · Exportación de una EPS (prueba del criterio C5)
+# Escrito a partir de mapeos/_plantilla.yaml, solo con el CSV y docs/instrucciones_fuente4.md.
+version_esquema: 1
+
+fuente:
+  id: fuente4_eps
+  nombre: &quot;Exportación EPS (fuente nueva, prueba C5)&quot;
+  tipo: csv
+  ruta: datos/fuentes/fuente4_eps_export.csv
+
+lectura:
+  separador: &quot;|&quot;
+  codificacion: latin-1          # el archivo es ASCII; latin-1 es una opción segura
+  fila_encabezado: 1
+
+columnas:
+  id_atencion: COD_ATN
+  tipo_documento: DOC_TIPO
+  numero_documento: DOC_NUM
+  sexo: SEXO_PAC
+  fecha_nacimiento: NAC_FECHA
+  fecha_atencion: ATN_FECHA
+  codigo_cie10: DIAG_CIE10
+  # la fuente no trae nombres del paciente (son opcionales)
+
+formatos_fecha:
+  fecha_nacimiento: &quot;%Y%m%d&quot;     # 19510825
+  fecha_atencion: &quot;%Y%m%d&quot;       # 20260720
+
+equivalencias:
+  sexo:
+    HOMBRE: M
+    MUJER: F
+  tipo_documento:
+    CED: CC
+    TID: TI
+    REG: RC
+    PAS: PA
+</pre>
+  <p class="nota">Inicio 2026-11-22T19:00:26-05:00 · fin 2026-11-22T19:00:40-05:00. Tiempo = reloj del sistema entre &#x27;inicio&#x27; y &#x27;fin&#x27;. Compárese con el cronómetro manual.</p>
+</div>
+</section>
+</main>
+<footer class="pie">
+  <p class="leyenda-academica">Prototipo académico · datos sintéticos · validación estructural FHIR R4</p>
+  <p>FHIR 4.0.1 · ejecución del 22 de noviembre de 2026, 19:05 · generado por <code>python main.py ejecutar</code></p>
+  <p>Datos 100 % sintéticos generados con Faker (es_CO) y semilla fija; ninguno corresponde a personas reales.
+  Este prototipo no está certificado ni aprobado por el Ministerio de Salud y Protección Social, y la validación
+  estructural contra FHIR R4 base no implica conformidad con la guía de implementación del RDA.
+  El catálogo CIE-10 usado es: subconjunto transcrito (contrastar con SISPRO).</p>
+  <p>Julián David Avendaño Valderrama · Karol Vanessa Cardenas Chavarrio · Erika Yuliana Gómez Rodríguez · Nasly Natalia Valencia Palacios<br>Universidad El Bosque · Gestión de Tecnología e Innovación</p>
+</footer>
+<div id="tip" class="tip" role="tooltip" hidden></div>
+<script>
+(function(){
+  var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(v, dec){ return Number(v).toLocaleString('es-CO',{minimumFractionDigits:dec,maximumFractionDigits:dec}); }
+  // Contadores animados (el valor final ya está en el HTML: funciona sin JS y al imprimir)
+  document.querySelectorAll('.contador').forEach(function(el){
+    var fin = parseFloat(el.dataset.valor), dec = parseInt(el.dataset.dec||'0',10);
+    if (isNaN(fin) || reducido) return;
+    var t0 = null, dur = 1100;
+    function paso(t){ if(!t0) t0=t; var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent = fmt(fin*e, dec); if(p<1) requestAnimationFrame(paso); else el.textContent = fmt(fin, dec); }
+    el.textContent = fmt(0, dec); requestAnimationFrame(paso);
+  });
+  // Anillos: crecen desde cero
+  if (!reducido) document.querySelectorAll('.anillo .arco').forEach(function(c){
+    var final = c.getAttribute('stroke-dasharray'); var circ = final.split(' ')[1];
+    c.setAttribute('stroke-dasharray','0 '+circ); setTimeout(function(){ c.setAttribute('stroke-dasharray', final); }, 60);
+  });
+  // Tooltip de los gráficos
+  var tip = document.getElementById('tip');
+  document.querySelectorAll('[data-tip]').forEach(function(el){
+    el.addEventListener('mousemove', function(ev){ tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+      var x = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8); tip.style.left = x+'px'; tip.style.top = (ev.clientY + 14)+'px'; });
+    el.addEventListener('mouseleave', function(){ tip.hidden = true; });
+  });
+  // Pestañas accesibles (clic y flechas)
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role=tab]'));
+  function activar(t){ tabs.forEach(function(o){ var sel = o===t; o.setAttribute('aria-selected', sel); o.tabIndex = sel?0:-1;
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !sel; }); t.focus(); }
+  tabs.forEach(function(t,i){ t.addEventListener('click', function(){ activar(t); });
+    t.addEventListener('keydown', function(ev){ if(ev.key==='ArrowRight') activar(tabs[(i+1)%tabs.length]);
+      if(ev.key==='ArrowLeft') activar(tabs[(i-1+tabs.length)%tabs.length]); }); });
+  // Filtros del reporte de errores
+  var fF = document.getElementById('f-fuente'), fT = document.getElementById('f-tipo'), fX = document.getElementById('f-texto'), cuenta = document.getElementById('f-cuenta');
+  var filas = Array.prototype.slice.call(document.querySelectorAll('#errores-cuerpo tr'));
+  function filtrar(){ var q = (fX.value||'').toLowerCase(), n = 0;
+    filas.forEach(function(r){ var ok = (!fF.value || r.dataset.fuente===fF.value) && (!fT.value || r.dataset.tipo===fT.value) && (!q || r.textContent.toLowerCase().indexOf(q)>=0);
+      r.hidden = !ok; if(ok) n++; });
+    cuenta.textContent = n + ' de ' + filas.length; }
+  if (fF) { fF.addEventListener('change', filtrar); fT.addEventListener('change', filtrar); fX.addEventListener('input', filtrar); }
+  // Copiar el RDA
+  var btn = document.getElementById('copiar');
+  if (btn) btn.addEventListener('click', function(){
+    var texto = document.getElementById('rda-json').textContent;
+    function listo(){ btn.textContent = 'Copiado ✓'; btn.classList.add('hecho'); setTimeout(function(){ btn.textContent='Copiar JSON'; btn.classList.remove('hecho'); }, 1800); }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(texto).then(listo, respaldo); } else { respaldo(); }
+    function respaldo(){ var ta = document.createElement('textarea'); ta.value = texto; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); listo(); } catch(e) {} document.body.removeChild(ta); }
+  });
+})();
+</script>
+</body>
+</html>

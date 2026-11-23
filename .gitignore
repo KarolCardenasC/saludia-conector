@@ -1,0 +1,21 @@
+# Entorno virtual y caché de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Salidas regenerables de cada corrida (se conservan los ejemplos de evidencia)
+salidas/rda/
+salidas/rda_rechazados/
+salidas/c5_salidas/
+
+# Archivos temporales de Excel/LibreOffice
+~$*.xlsx
+.~lock.*
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+salidas/exploratorio/

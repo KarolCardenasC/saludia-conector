@@ -1,0 +1,31 @@
+# Fuente 1 · Base de datos de un software clínico tradicional (SQLite)
+version_esquema: 1
+
+fuente:
+  id: fuente1_sqlite
+  nombre: "HIS clínico tradicional (base de datos relacional)"
+  tipo: sqlite
+  ruta: datos/fuentes/fuente1_his_clinico.sqlite
+
+lectura:
+  tabla: tb_atencion          # la otra tabla (tb_usuarios) no se lee
+
+columnas:                     # campo del modelo común: columna en la fuente
+  id_atencion: id_aten
+  tipo_documento: tip_doc
+  numero_documento: num_doc
+  nombres: nom_pac
+  apellidos: ape_pac
+  sexo: sexo
+  fecha_nacimiento: fec_nac
+  fecha_atencion: fec_consulta
+  codigo_cie10: cod_dx
+  # usr_reg y est_reg no se mapean: se ignoran
+
+formatos_fecha:
+  fecha_nacimiento: "%Y-%m-%d"
+  fecha_atencion: "%Y-%m-%d %H:%M"
+
+equivalencias:
+  sexo: {M: M, F: F}
+  tipo_documento: {CC: CC, TI: TI, RC: RC, CE: CE, PA: PA}
